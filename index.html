@@ -57,16 +57,14 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 .hero-container{position:relative}
 
 /* Video stays stuck behind everything */
-.hero-bg{position:absolute;top:0;left:0;height:100%;width:100%;overflow:hidden;z-index:0}
-.hero-bg video{position:absolute;top:0;left:0;width:100%;height:115%;object-fit:cover;opacity:.55;transform:scale(1.02);will-change:transform}
+.hero-bg{position:sticky;top:0;height:100dvh;width:100%;overflow:hidden;z-index:0}
+.hero-bg video{position:absolute;top:0;left:0;width:100%;height:130dvh;object-fit:cover;opacity:.55;transform:scale(1.02);will-change:transform}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,13,0.12) 0%,rgba(13,13,13,0.25) 40%,rgba(13,13,13,0.75) 100%);pointer-events:none}
 
-/* Content panels scroll over the video */
-.hero-panels{position:relative;z-index:2}
+/* Content panels scroll over the sticky video */
+.hero-panels{position:relative;z-index:2;margin-top:-100dvh}
 
-/* Adjust panel sizes for natural flow */
-.hero-panel{display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px}
-.hero-panel:first-child{min-height:100dvh;padding:0 24px}
+.hero-panel{min-height:100dvh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px}
 .hero-panel-inner{max-width:860px;width:100%;opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
 .hero-panel-inner.visible{opacity:1;transform:translateY(0)}
 
@@ -557,12 +555,11 @@ document.querySelectorAll('[data-reveal="scroll"],.reveal').forEach(function(el)
   // Tie the true parallax effect to the Lenis scroll for extreme smoothness
   lenis.on('scroll', function() {
     var rect=container.getBoundingClientRect();
-    if(rect.top <= window.innerHeight && rect.bottom >= 0){
-      var totalScroll = window.innerHeight + container.offsetHeight;
-      var p = (window.innerHeight - rect.top) / totalScroll;
-      p = Math.max(0, Math.min(1, p));
-      // Moving up 15% to match the 115% height over the natural scroll
-      v.style.transform = 'translateY(' + (-15 * p) + '%) scale(1.02)';
+    var h=container.offsetHeight-window.innerHeight;
+    if(h>0){
+      var p=Math.max(0,Math.min(1,-rect.top/h));
+      // Moving up 30dvh to exactly match the extra 30dvh height, preventing blank gaps
+      v.style.transform = 'translateY(' + (-30 * p) + 'dvh) scale(1.02)';
     }
   });
 })();
