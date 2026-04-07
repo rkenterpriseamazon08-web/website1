@@ -564,14 +564,17 @@ document.querySelectorAll('[data-reveal="scroll"],.reveal').forEach(function(el)
       ticking = false;
     }
   }
+function updateHeroParallax() {
+  var rect = container.getBoundingClientRect();
+  var h = container.offsetHeight - window.innerHeight;
+  if (h > 0) {
+    var p = Math.max(0, Math.min(1, -rect.top / h));
+    v.style.transform = 'translateY(' + (-30 * p) + 'dvh) scale(1.02)';
+  }
+}
 
-  lenis.on('scroll', function() {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(updateParallax);
-    }
-  });
-
+window.addEventListener('scroll', updateHeroParallax, { passive: true });
+window.addEventListener('load', updateHeroParallax);
   window.addEventListener('load', function() {
     requestAnimationFrame(updateParallax);
   });
