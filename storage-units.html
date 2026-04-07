@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storage Units — RK Enterprise</title>
+<meta name="description" content="RK Enterprise Storage Units — 20ft and 40ft secure shipping containers for warehousing, inventory management, and on-site material">
+<link rel="icon" href="./assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#C8A45E;--gold-light:#E8D5A0;--charcoal:#1A1A1A;--dark:#0D0D0D;--text:#F5F0E8;--text-muted:rgba(245,240,232,0.6);--serif:'Playfair Display',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif;--ease:cubic-bezier(0.25,0.46,0.45,0.94);--ease-out:cubic-bezier(0.16,1,0.3,1)}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--sans);background:var(--dark);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{cursor:pointer;border:none;background:none;font-family:inherit}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:22px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(13,13,13,0.92);backdrop-filter:blur(24px);border-bottom:1px solid rgba(200,164,94,0.06)}
+.nav-logo{display:flex;align-items:center;gap:14px}
+.nav-logo img{height:34px}.nav-logo span{font-family:var(--serif);font-size:1.1rem;letter-spacing:4px;color:var(--gold);text-transform:uppercase;font-weight:500}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{font-size:.78rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--text-muted);transition:color .3s}.nav-links a:hover{color:var(--gold)}
+.nav-cta{padding:11px 30px;border:1px solid var(--gold);color:var(--gold);font-size:.75rem;letter-spacing:2.5px;text-transform:uppercase;transition:all .4s var(--ease);font-weight:500}
+.nav-cta:hover{background:var(--gold);color:var(--dark)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
+.nav-hamburger span{display:block;width:24px;height:1.5px;background:var(--gold)}
+.mobile-menu{position:fixed;inset:0;z-index:999;background:rgba(13,13,13,0.98);backdrop-filter:blur(30px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;visibility:hidden;transition:all .5s var(--ease)}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu a{font-family:var(--serif);font-size:1.8rem;color:var(--text-muted);transition:color .3s}.mobile-menu a:hover{color:var(--gold)}
+
+.product-hero{position:relative;height:60vh;min-height:400px;display:flex;align-items:flex-end;overflow:hidden;padding:0 48px 64px}
+.product-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.product-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,13,13,0.9) 0%,rgba(13,13,13,0.3) 50%,rgba(13,13,13,0.15) 100%)}
+.product-hero-content{position:relative;z-index:1;max-width:700px}
+.product-hero-tag{font-size:.62rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500}
+.product-hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;margin-bottom:16px}
+.product-hero p{font-size:.95rem;color:var(--text-muted);font-weight:300;line-height:1.8;max-width:560px}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:500;transition:opacity .3s}.back-link:hover{opacity:.7}
+
+.section{padding:96px 48px}.section-dark{background:var(--dark)}.section-charcoal{background:var(--charcoal)}
+.container{max-width:1200px;margin:0 auto}
+
+.tier-selector{display:flex;gap:0;border-bottom:1px solid rgba(200,164,94,0.12);margin-bottom:64px}
+.tier-btn{padding:18px 40px;font-size:.78rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-muted);cursor:pointer;position:relative;transition:color .3s;font-weight:500;background:none;border:none;font-family:var(--sans)}
+.tier-btn.active{color:var(--gold)}.tier-btn.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold)}
+
+.tier-panel{display:none;animation:fadeIn .4s var(--ease-out)}.tier-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.tier-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.tier-image{aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(200,164,94,0.08)}
+.tier-image img{width:100%;height:100%;object-fit:cover}
+.tier-info h2{font-size:1.8rem;margin-bottom:8px}
+.tier-info .tier-price{font-family:var(--serif);font-size:1.5rem;color:var(--gold);margin-bottom:8px}
+.tier-info .tier-price small{font-size:.72rem;color:var(--text-muted);font-family:var(--sans)}
+.tier-badge{display:inline-block;background:var(--gold);color:var(--dark);font-size:.55rem;letter-spacing:2px;padding:4px 14px;text-transform:uppercase;font-weight:700;margin-bottom:16px}
+.tier-desc{font-size:.9rem;color:var(--text-muted);font-weight:300;line-height:1.8;margin-bottom:32px}
+
+.spec-table{width:100%;border-collapse:collapse}
+.spec-table tr{border-bottom:1px solid rgba(200,164,94,0.06)}
+.spec-table td{padding:14px 0;font-size:.85rem;vertical-align:top}
+.spec-table td:first-child{color:var(--gold);font-weight:500;width:40%;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;padding-right:20px}
+.spec-table td:last-child{color:var(--text-muted);font-weight:300}
+
+.btn-primary{padding:16px 42px;background:var(--gold);color:var(--dark);font-size:.78rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;transition:all .4s var(--ease);display:inline-flex;align-items:center;gap:8px;margin-top:32px}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+
+.product-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:48px}
+.product-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .6s var(--ease);cursor:pointer}
+.product-gallery img:hover{transform:scale(1.03)}
+
+.footer{padding:60px 48px 32px;border-top:1px solid rgba(200,164,94,0.06)}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-inner p{font-size:.72rem;color:var(--text-muted);font-weight:300}
+.footer-inner a{font-size:.72rem;color:var(--gold);font-weight:400;transition:opacity .3s}.footer-inner a:hover{opacity:.7}
+
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:900;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,0.3);transition:transform .3s;font-size:1.5rem}
+.whatsapp-float:hover{transform:scale(1.1)}
+
+@media(max-width:768px){
+.nav{padding:16px 20px}.nav-links{display:none}.nav-hamburger{display:flex}
+.product-hero{height:50vh;padding:0 20px 40px}
+.section{padding:64px 20px}
+.tier-layout{grid-template-columns:1fr;gap:40px}
+.product-gallery{grid-template-columns:1fr}
+.tier-selector{overflow-x:auto;scrollbar-width:none}.tier-selector::-webkit-scrollbar{display:none}
+.footer{padding:40px 20px 24px}.footer-inner{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+<a href="./index.html" class="nav-logo"><img src="./assets/logo.png" alt="RK Enterprise"><span>RK Enterprise</span></a>
+<div class="nav-links"><a href="./index.html#solutions">Solutions</a><a href="./index.html#gallery">Gallery</a><a href="./index.html#calculator">Pricing</a><a href="./index.html#contact" class="nav-cta">Get a Quote</a></div>
+<div class="nav-hamburger" onclick="document.getElementById('mm').classList.toggle('open')"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mm"><a href="./index.html" onclick="document.getElementById('mm').classList.remove('open')">Home</a><a href="./index.html#solutions" onclick="document.getElementById('mm').classList.remove('open')">Solutions</a><a href="./index.html#calculator" onclick="document.getElementById('mm').classList.remove('open')">Pricing</a><a href="./index.html#contact" onclick="document.getElementById('mm').classList.remove('open')">Contact</a></div>
+
+<div class="product-hero">
+<img src="./assets/storage.jpg" alt="Storage Units">
+<div class="product-hero-content">
+<a href="./index.html#solutions" class="back-link">← Back to Solutions</a>
+<div class="product-hero-tag">Storage</div>
+<h1>Storage Units</h1>
+<p>20ft and 40ft secure shipping containers for warehousing, inventory management, and on-site material storage. Durable, lockable, and weather-resistant.</p>
+</div>
+</div>
+
+<section class="section section-dark">
+<div class="container">
+<div class="tier-selector"><button class="tier-btn" onclick="showPanel(0,this)">Basic</button><button class="tier-btn active" onclick="showPanel(1,this)">Standard</button><button class="tier-btn" onclick="showPanel(2,this)">Premium</button></div>
+<div class="tier-panel" data-tier="0">
+<div class="tier-layout">
+<div class="tier-image"><img src="./assets/storage.jpg" alt="Standard Storage"></div>
+<div class="tier-info">
+
+<h2>Standard Storage</h2>
+<div class="tier-price">From ₹80K <small>+ GST</small></div>
+<p class="tier-desc">Storage — Basic tier configuration with all essentials for this category.</p>
+<table class="spec-table"><tr><td>Size</td><td>20ft / 40ft</td></tr><tr><td>Structure</td><td>Bareshell container</td></tr><tr><td>Flooring</td><td>Metal sheet / cement board</td></tr><tr><td>Lighting</td><td>2–4 tube lights</td></tr><tr><td>Security</td><td>Lockable cargo doors</td></tr><tr><td>Ventilation</td><td>Standard louvers</td></tr><tr><td>Delivery</td><td>5–10 days</td></tr></table>
+<a href="./index.html#contact" class="btn-primary">Get Quote for Standard Storage →</a>
+</div>
+</div>
+</div>
+<div class="tier-panel active" data-tier="1">
+<div class="tier-layout">
+<div class="tier-image"><img src="./assets/storage.jpg" alt="Enhanced Storage"></div>
+<div class="tier-info">
+<div class="tier-badge">Most Popular</div>
+<h2>Enhanced Storage</h2>
+<div class="tier-price">From ₹1.2L <small>+ GST</small></div>
+<p class="tier-desc">Storage — Standard tier configuration with all essentials for this category.</p>
+<table class="spec-table"><tr><td>Size</td><td>20ft / 40ft</td></tr><tr><td>Structure</td><td>Reinforced container</td></tr><tr><td>Flooring</td><td>Cement board</td></tr><tr><td>Lighting</td><td>LED lights + sockets</td></tr><tr><td>Security</td><td>Heavy-duty lock system + ventilation</td></tr><tr><td>Shelving</td><td>Optional racking system</td></tr><tr><td>Extras</td><td>Anti-rust coating</td></tr><tr><td>Delivery</td><td>10–15 days</td></tr></table>
+<a href="./index.html#contact" class="btn-primary">Get Quote for Enhanced Storage →</a>
+</div>
+</div>
+</div>
+<div class="tier-panel" data-tier="2">
+<div class="tier-layout">
+<div class="tier-image"><img src="./assets/storage.jpg" alt="Climate Storage"></div>
+<div class="tier-info">
+
+<h2>Climate Storage</h2>
+<div class="tier-price">From ₹1.8L <small>+ GST</small></div>
+<p class="tier-desc">Storage — Premium tier configuration with all essentials for this category.</p>
+<table class="spec-table"><tr><td>Size</td><td>20ft / 40ft</td></tr><tr><td>Structure</td><td>Insulated container</td></tr><tr><td>Insulation</td><td>Glasswool / PUF</td></tr><tr><td>Flooring</td><td>Raised flooring</td></tr><tr><td>Lighting</td><td>Full LED + electrical</td></tr><tr><td>Security</td><td>Multi-point locking + alarm provision</td></tr><tr><td>Climate</td><td>Ventilation / AC provision</td></tr><tr><td>Extras</td><td>Custom shelving + branding</td></tr><tr><td>Delivery</td><td>12–20 days</td></tr></table>
+<a href="./index.html#contact" class="btn-primary">Get Quote for Climate Storage →</a>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section section-dark"><div class="container"><h2 style="font-size:1.4rem;margin-bottom:8px;text-align:center">Gallery</h2><div class="product-gallery"><img src="./assets/storage.jpg" alt="Storage Units"></div></div></section>
+
+<section class="section section-charcoal" style="text-align:center">
+<div class="container">
+<h2 style="font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:16px">Interested in <em style="font-style:italic;color:var(--gold)">Storage Units</em>?</h2>
+<p style="color:var(--text-muted);max-width:480px;margin:0 auto 32px;font-weight:300">Get a custom quote tailored to your requirements. We respond within 2 hours.</p>
+<a href="./index.html#contact" class="btn-primary">Request a Quote →</a>
+<a href="https://wa.me/916291465527?text=Hi%20RK%20Enterprise%2C%20I'm%20interested%20in%20Storage%20Units." class="btn-primary" style="background:transparent;border:1px solid var(--gold);color:var(--gold);margin-left:12px">💬 WhatsApp</a>
+</div>
+</section>
+
+<footer class="footer"><div class="footer-inner"><p>© 2025 RK Enterprise. All Rights Reserved.</p><a href="./index.html">← Back to Home</a></div></footer>
+<a href="https://wa.me/916291465527" target="_blank" class="whatsapp-float">💬</a>
+<script>
+function showPanel(idx,btn){
+document.querySelectorAll('.tier-btn').forEach(function(b){b.classList.remove('active')});
+document.querySelectorAll('.tier-panel').forEach(function(p){p.classList.remove('active')});
+btn.classList.add('active');
+document.querySelector('.tier-panel[data-tier="'+idx+'"]').classList.add('active');
+}
+</script>
+</body>
+</html>
