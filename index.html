@@ -53,7 +53,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 .mobile-menu a:hover{color:var(--gold)}
 
 /* Hero Scroll System */
-.hero-scroll-container{position:relative;height:400vh}
+.hero-scroll-container{position:relative;height:560vh}
 .hero-sticky{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .hero-video-wrap{position:absolute;inset:0;z-index:0}
 .hero-video-wrap video{width:100%;height:100%;object-fit:cover;opacity:.6;will-change:transform,opacity;transform-origin:center}
@@ -83,6 +83,17 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 .hero-story-point{opacity:0;transform:translateY(20px);text-align:center}
 .hsp-num{display:block;font-family:var(--serif);font-size:1.7rem;color:var(--gold);font-weight:400;margin-bottom:6px}
 .hsp-text{font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);font-weight:400;line-height:1.4}
+
+
+
+/* Hero Use Cases Layer */
+.hero-usecases{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px;opacity:0;pointer-events:none}
+.hero-usecase{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) translateY(24px);width:min(900px,100%);opacity:0;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.hero-usecase.active{opacity:1;transform:translate(-50%,-50%) translateY(0)}
+.hero-usecase-tag{font-size:.6rem;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:500}
+.hero-usecase h3{font-family:var(--serif);font-size:clamp(1.7rem,3.6vw,2.7rem);font-weight:400;line-height:1.18;margin-bottom:16px}
+.hero-usecase h3 em{font-style:italic;color:var(--gold)}
+.hero-usecase p{font-size:.9rem;color:var(--text-muted);max-width:620px;margin:0 auto;line-height:1.85;font-weight:300}
 
 /* Hero Trust Layer */
 .hero-trust{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;gap:48px;padding:0 24px;opacity:0;pointer-events:none;text-align:center}
@@ -257,6 +268,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 .footer-bottom{flex-direction:column;gap:12px;text-align:center}
 .hero-actions{flex-direction:column;align-items:center}
 .hero-story-points{grid-template-columns:repeat(2,1fr);gap:16px}
+.hero-usecase{width:min(92vw,900px)}
 .hero-trust{flex-wrap:wrap;gap:24px;padding:0 32px}
 .hero-trust>div{min-width:100px}
 .tier-tabs{overflow-x:auto;scrollbar-width:none}.tier-tabs::-webkit-scrollbar{display:none}
@@ -305,6 +317,14 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 <div><div class="ht-num">2</div><div class="ht-label">Factory Locations</div></div>
 <div><div class="ht-num">1000</div><div class="ht-label">KM Delivery Radius</div></div>
 <div><div class="ht-num">15+</div><div class="ht-label">Days Avg. Delivery</div></div>
+</div>
+
+<div class="hero-usecases" id="heroUsecases">
+<div class="hero-usecase" data-usecase="home"><div class="hero-usecase-tag">Container Homes</div><h3>Beautiful homes, built <em>faster</em></h3><p>For farmhouses, weekend stays, staff accommodation, or full-time living — container homes deliver premium interiors, faster setup, and lower civil work compared to traditional construction.</p></div>
+<div class="hero-usecase" data-usecase="office"><div class="hero-usecase-tag">Office Pods</div><h3>Workspaces that move with your <em>project</em></h3><p>Ideal for site offices, project cabins, sales offices, and corporate pods — container offices are fast to deploy, easy to relocate, and ready for AC, workstations, and partitions.</p></div>
+<div class="hero-usecase" data-usecase="cafe"><div class="hero-usecase-tag">Cafés & Retail</div><h3>High-visibility cafés that open <em>quickly</em></h3><p>For coffee bars, retail kiosks, and food concepts, containers create a striking branded presence with toughened glass, service counters, and faster go-live timelines.</p></div>
+<div class="hero-usecase" data-usecase="toilet"><div class="hero-usecase-tag">Public Toilets</div><h3>Sanitation blocks that are clean, modular, and <em>scalable</em></h3><p>Perfect for events, work sites, campuses, and public spaces — modular toilet units reduce on-site construction time and make maintenance, transport, and expansion easier.</p></div>
+<div class="hero-usecase" data-usecase="security"><div class="hero-usecase-tag">Security Cabins</div><h3>Security cabins with comfort and <em>visibility</em></h3><p>Guard cabins can be delivered fast, placed almost anywhere, and customized with 3-side visibility, electricals, desks, and weather-ready finishes for dependable daily use.</p></div>
 </div>
 
 <div class="hero-scroll-cue" id="heroScrollCue"><span>Scroll to explore</span><div class="scroll-line"></div></div>
@@ -501,29 +521,39 @@ setTimeout(function(){var p=document.getElementById('preloader');if(p)p.classLis
 (function(){
 var v=document.getElementById('heroVideo'),c=document.querySelector('.hero-scroll-container'),
 h=document.getElementById('heroContent'),s=document.getElementById('heroStory'),
-t=document.getElementById('heroTrust'),cue=document.getElementById('heroScrollCue'),
+t=document.getElementById('heroTrust'),u=document.getElementById('heroUsecases'),cue=document.getElementById('heroScrollCue'),
 bar=document.getElementById('heroProgress'),vid=document.querySelector('.hero-video-wrap video'),
-pts=document.querySelectorAll('.hero-story-point'),at=0;
-v.pause();v.currentTime=0;
-function gp(){var r=c.getBoundingClientRect(),d=c.offsetHeight-window.innerHeight;return d<=0?0:Math.max(0,Math.min(1,-r.top/d))}
+pts=document.querySelectorAll('.hero-story-point'),cards=document.querySelectorAll('.hero-usecase'),at=0;
+if(v){v.pause();v.currentTime=0;}
+function gp(){if(!c)return 0;var r=c.getBoundingClientRect(),d=c.offsetHeight-window.innerHeight;return d<=0?0:Math.max(0,Math.min(1,-r.top/d))}
 function ss(a,b,x){var t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t)}
 function tick(){
 var p=gp();
 // Video scrub — only when metadata loaded
-if(v.readyState>=1&&v.duration>0){var dur=v.duration,tgt=p*dur;at+=(tgt-at)*0.1;if(Math.abs(v.currentTime-at)>0.02)v.currentTime=at;}
+if(v&&v.readyState>=1&&v.duration>0){var dur=v.duration,tgt=p*dur;at+=(tgt-at)*0.1;if(Math.abs(v.currentTime-at)>0.02)v.currentTime=at;}
 if(bar)bar.style.width=(p*100)+'%';
 // Phase 1: Hero headline (visible 0–0.15, fully gone by 0.2)
 if(h){var f=Math.max(0,1-p*6);h.style.opacity=f;h.style.transform='translateY('+(p*80)+'px) scale('+(1-p*0.08)+')';}
 if(cue)cue.style.opacity=Math.max(0,1-p*12);
-// Video: subtle zoom, stay brighter (min 0.28)
-if(vid){vid.style.transform='scale('+(1+p*0.12)+')';vid.style.opacity=Math.max(0.28,0.6-p*0.35);}
-// Phase 2: Story (0.13–0.55)
-if(s){var si=ss(0.13,0.28,p),so=1-ss(0.5,0.62,p),op=Math.min(si,so);
+// Video: subtle zoom, stay brighter throughout scroll
+if(vid){vid.style.transform='scale('+(1+p*0.12)+')';vid.style.opacity=Math.max(0.34,0.66-p*0.22);}
+// Phase 2: Story (0.13–0.46)
+if(s){var si=ss(0.13,0.24,p),so=1-ss(0.42,0.5,p),op=Math.min(si,so);
 s.style.opacity=op;s.style.transform='translateY('+((1-si)*50+((1-so)*-40))+'px)';}
-for(var i=0;i<pts.length;i++){var dl=i*0.04,pi=ss(0.2+dl,0.35+dl,p),po=1-ss(0.5,0.6,p);
+for(var i=0;i<pts.length;i++){var dl=i*0.04,pi=ss(0.18+dl,0.31+dl,p),po=1-ss(0.42,0.5,p);
 pts[i].style.opacity=Math.min(pi,po);pts[i].style.transform='translateY('+((1-pi)*24)+'px)';}
-// Phase 3: Trust stats (0.58–0.88)
-if(t){var ti=ss(0.58,0.76,p);t.style.opacity=ti;t.style.transform='translateY('+((1-ti)*36)+'px)';}
+// Phase 3: Trust stats (0.48–0.66)
+if(t){var ti=ss(0.48,0.58,p),to=1-ss(0.64,0.72,p);var top=Math.min(ti,to);t.style.opacity=top;t.style.transform='translateY('+((1-ti)*36)+'px)';}
+// Phase 4: Use-case storytelling (0.68–0.98)
+if(u){var ui=ss(0.66,0.74,p),uo=1-ss(0.96,1,p),uop=Math.min(ui,uo);u.style.opacity=uop;u.style.transform='translateY('+((1-ui)*24)+'px)';}
+if(cards&&cards.length){
+  var ranges=[[0.68,0.74],[0.74,0.8],[0.8,0.86],[0.86,0.92],[0.92,0.98]];
+  for(var j=0;j<cards.length;j++){
+    var r=ranges[j]||[0.68,0.74],active=p>=r[0]&&p<r[1];
+    cards[j].classList.toggle('active',active);
+  }
+  if(p>=0.98)cards[cards.length-1].classList.add('active');
+}
 requestAnimationFrame(tick);}
 requestAnimationFrame(tick);
 })();
