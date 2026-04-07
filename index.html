@@ -53,11 +53,11 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 .mobile-menu a:hover{color:var(--gold)}
 
 /* Hero Scroll System */
-.hero-scroll-container{position:relative;height:500vh}
+.hero-scroll-container{position:relative;height:400vh}
 .hero-sticky{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .hero-video-wrap{position:absolute;inset:0;z-index:0}
 .hero-video-wrap video{width:100%;height:100%;object-fit:cover;opacity:.6;will-change:transform,opacity;transform-origin:center}
-.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(13,13,13,0.2) 0%,rgba(13,13,13,0.35) 40%,rgba(13,13,13,0.85) 100%);pointer-events:none}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(13,13,13,0.15) 0%,rgba(13,13,13,0.3) 40%,rgba(13,13,13,0.7) 100%);pointer-events:none}
 .hero-content{position:relative;z-index:2;text-align:center;max-width:880px;padding:0 24px;will-change:opacity,transform}
 .hero-eyebrow{font-size:.72rem;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:28px;opacity:0;animation:fadeUp .8s var(--ease-out) .5s forwards;font-weight:500}
 .hero-content h1{font-size:clamp(2.6rem,6.5vw,5rem);font-weight:400;line-height:1.08;margin-bottom:24px;opacity:0;animation:fadeUp .8s var(--ease-out) .7s forwards;letter-spacing:-0.5px}
@@ -74,7 +74,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 .hero-progress{position:absolute;bottom:0;left:0;height:2px;background:var(--gold);z-index:4;width:0}
 
 /* Hero Story Layer */
-.hero-story{position:absolute;z-index:2;text-align:center;max-width:780px;padding:0 24px;opacity:0;transform:translateY(40px);pointer-events:none}
+.hero-story{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;opacity:0;pointer-events:none}
 .hero-story-eyebrow{font-size:.6rem;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:500}
 .hero-story h2{font-family:var(--serif);font-size:clamp(1.5rem,3.2vw,2.4rem);font-weight:400;line-height:1.2;margin-bottom:20px}
 .hero-story h2 em{font-style:italic;color:var(--gold)}
@@ -85,9 +85,11 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 .hsp-text{font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);font-weight:400;line-height:1.4}
 
 /* Hero Trust Layer */
-.hero-trust{position:absolute;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:48px;max-width:900px;padding:0 24px;opacity:0;transform:translateY(30px);pointer-events:none;text-align:center}
+.hero-trust{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;gap:48px;padding:0 24px;opacity:0;pointer-events:none;text-align:center}
 .ht-num{font-family:var(--serif);font-size:2.4rem;color:var(--gold);font-weight:400;letter-spacing:-1px}
 .ht-label{font-size:.64rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-muted);margin-top:6px}
+.hero-trust>div{min-width:130px}
+.hero-story-inner{max-width:780px;width:100%}
 
 @keyframes scroll-pulse{0%,100%{opacity:.2;transform:scaleY(1)}50%{opacity:.8;transform:scaleY(1.3)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
@@ -255,7 +257,8 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 .footer-bottom{flex-direction:column;gap:12px;text-align:center}
 .hero-actions{flex-direction:column;align-items:center}
 .hero-story-points{grid-template-columns:repeat(2,1fr);gap:16px}
-.hero-trust{grid-template-columns:repeat(2,1fr);gap:24px}
+.hero-trust{flex-wrap:wrap;gap:24px;padding:0 32px}
+.hero-trust>div{min-width:100px}
 .tier-tabs{overflow-x:auto;scrollbar-width:none}.tier-tabs::-webkit-scrollbar{display:none}
 .cta-banner{padding:80px 20px}
 }
@@ -468,7 +471,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 </form>
 <div class="contact-info reveal reveal-delay-2">
 <div class="contact-block"><h3>Call Us</h3><a href="tel:+916291465527">+91-6291465527</a><br><a href="tel:+919831220899">+91-9831220899</a><br><a href="tel:+919007414504">+91-9007414504</a></div>
-<div class="contact-block"><h3>Email</h3><a href="mailto:rkenterpriseamazon08@gmail.com">rkenterpriseamazon08@gmail.com</a></div>
+<div class="contact-block"><h3>Email</h3><a href="/cdn-cgi/l/email-protection#b1c3dad4dfc5d4c3c1c3d8c2d4d0dcd0cbdedf8189f1d6dcd0d8dd9fd2dedc"><span class="__cf_email__" data-cfemail="295b424c475d4c5b595b405a4c4844485346471911694e44484045074a4644">[email&#160;protected]</span></a></div>
 <div class="contact-block"><h3>Factory — Bardhaman, WB</h3><a href="https://maps.app.goo.gl/UQVY5eGnETHzunAE9" target="_blank">View on Google Maps →</a></div>
 <div class="contact-block"><h3>Factory — Faridabad, Delhi NCR</h3><a href="https://maps.app.goo.gl/UkuZZ4gQx7FzWSFT9" target="_blank">View on Google Maps →</a></div>
 <a href="https://wa.me/916291465527?text=Hi%20RK%20Enterprise" class="whatsapp-btn" target="_blank">💬 Chat on WhatsApp</a>
@@ -488,7 +491,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 
 <a href="https://wa.me/916291465527" target="_blank" style="position:fixed;bottom:24px;right:24px;z-index:900;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,0.3);transition:transform .3s;font-size:1.5rem" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">💬</a>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 window.addEventListener('load',function(){setTimeout(function(){document.getElementById('preloader').classList.add('hidden')},1600)});
 
 // === 3-PHASE SCROLL STORYTELLING ===
@@ -502,21 +505,22 @@ v.pause();v.currentTime=0;
 function gp(){var r=c.getBoundingClientRect(),d=c.offsetHeight-window.innerHeight;return d<=0?0:Math.max(0,Math.min(1,-r.top/d))}
 function ss(a,b,x){var t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t)}
 function tick(){
-var p=gp(),dur=v.duration||10,tgt=p*dur;
-at+=(tgt-at)*0.08;if(Math.abs(v.currentTime-at)>0.03)v.currentTime=at;
+var p=gp();
+// Video scrub — only when metadata loaded
+if(v.readyState>=1&&v.duration>0){var dur=v.duration,tgt=p*dur;at+=(tgt-at)*0.1;if(Math.abs(v.currentTime-at)>0.02)v.currentTime=at;}
 if(bar)bar.style.width=(p*100)+'%';
-// Phase 1: Hero (0–0.18)
-if(h){var f=Math.max(0,1-p*5.5);h.style.opacity=f;h.style.transform='translateY('+(p*100)+'px) scale('+(1-p*0.1)+')';}
+// Phase 1: Hero headline (visible 0–0.15, fully gone by 0.2)
+if(h){var f=Math.max(0,1-p*6);h.style.opacity=f;h.style.transform='translateY('+(p*80)+'px) scale('+(1-p*0.08)+')';}
 if(cue)cue.style.opacity=Math.max(0,1-p*12);
-// Video zoom + dim
-if(vid){vid.style.transform='scale('+(1+p*0.15)+')';vid.style.opacity=Math.max(0.12,0.6-p*0.4);}
-// Phase 2: Story (0.12–0.52)
-if(s){var si=ss(0.12,0.25,p),so=1-ss(0.52,0.65,p),op=Math.min(si,so);
-s.style.opacity=op;s.style.transform='translateY('+((1-si)*40-(1-so)*30)+'px)';}
-for(var i=0;i<pts.length;i++){var d=i*0.035,pi=ss(0.2+d,0.32+d,p),po=1-ss(0.52,0.63,p);
-pts[i].style.opacity=Math.min(pi,po);pts[i].style.transform='translateY('+((1-pi)*20)+'px)';}
-// Phase 3: Trust (0.6–1.0)
-if(t){var ti=ss(0.6,0.78,p);t.style.opacity=ti;t.style.transform='translateY('+((1-ti)*30)+'px)';}
+// Video: subtle zoom, stay brighter (min 0.28)
+if(vid){vid.style.transform='scale('+(1+p*0.12)+')';vid.style.opacity=Math.max(0.28,0.6-p*0.35);}
+// Phase 2: Story (0.13–0.55)
+if(s){var si=ss(0.13,0.28,p),so=1-ss(0.5,0.62,p),op=Math.min(si,so);
+s.style.opacity=op;s.style.transform='translateY('+((1-si)*50+((1-so)*-40))+'px)';}
+for(var i=0;i<pts.length;i++){var dl=i*0.04,pi=ss(0.2+dl,0.35+dl,p),po=1-ss(0.5,0.6,p);
+pts[i].style.opacity=Math.min(pi,po);pts[i].style.transform='translateY('+((1-pi)*24)+'px)';}
+// Phase 3: Trust stats (0.58–0.88)
+if(t){var ti=ss(0.58,0.76,p);t.style.opacity=ti;t.style.transform='translateY('+((1-ti)*36)+'px)';}
 requestAnimationFrame(tick);}
 requestAnimationFrame(tick);
 })();
@@ -528,8 +532,4 @@ document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
 function showTier(id,el){document.querySelectorAll('.tier-tab').forEach(function(t){t.classList.remove('active')});document.querySelectorAll('.tier-content').forEach(function(c){c.classList.remove('active')});el.classList.add('active');document.getElementById('tier-'+id).classList.add('active')}
 function toggleFaq(btn){var item=btn.closest('.faq-item');document.querySelectorAll('.faq-item.open').forEach(function(i){if(i!==item)i.classList.remove('open')});item.classList.toggle('open')}
 function calcPrice(){var b={home:{basic:180000,standard:275000,premium:450000},office:{basic:150000,standard:320000,premium:500000},cafe:{basic:130000,standard:350000,premium:600000},security:{basic:85000,standard:160000,premium:250000},storage:{basic:80000,standard:120000,premium:180000}};var ty=document.getElementById('calcType').value,sz=document.getElementById('calcSize').value,ti=document.getElementById('calcTier').value;var p=(b[ty]&&b[ty][ti])||275000;if(sz==='40')p*=1.6;var f=document.getElementById('calcFloor').value;if(f==='vinyl')p+=15000;else if(f==='tiles')p+=25000;else if(f==='wood')p+=35000;if(document.getElementById('calcKitchen').value==='yes')p+=35000;if(document.getElementById('calcToilet').value==='yes')p+=30000;if(document.getElementById('calcAC').value==='yes')p+=25000;var ins=document.getElementById('calcInsulation').value;if(ins==='glasswool')p+=15000;else if(ins==='puf')p+=30000;document.getElementById('calcTotal').textContent='\u20B9'+p.toLocaleString('en-IN')}
-function handleSubmit(e){e.preventDefault();var btn=e.target.querySelector('button[type="submit"]');btn.textContent='Sent! We\'ll contact you shortly \u2713';btn.style.background='#25D366';setTimeout(function(){btn.textContent='Send Inquiry \u2192';btn.style.background=''},3000)}
-calcPrice();
-</script>
-</body>
-</html>
+function handleSubmit(e){e.preventDefault();var btn=e.t
