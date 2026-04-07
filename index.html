@@ -508,25 +508,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 
 <a href="https://wa.me/916291465527" target="_blank" style="position:fixed;bottom:24px;right:24px;z-index:900;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,0.3);transition:transform .3s;font-size:1.5rem" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">💬</a>
 
-<script src="https://unpkg.com/@studio-freight/lenis@1.0.35/dist/lenis.min.js"></script>
-<script>
-// Lenis Smooth Scroll
-const lenis = new Lenis({
-  duration: 1.6,
-  easing: (t) => 1 - Math.pow(1 - t, 3),
-  direction: 'vertical',
-  smooth: true,
-  smoothTouch: false,
-  wheelMultiplier: 0.85,
-  touchMultiplier: 1,
-  infinite: false,
-});
 
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
 
 // Preloader: instant dismiss
 document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){document.getElementById('preloader').classList.add('hidden')},600)});
