@@ -512,11 +512,16 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 <script>
 // Lenis Smooth Scroll
 const lenis = new Lenis({
-  duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  duration: 1.6,
+  easing: (t) => 1 - Math.pow(1 - t, 3),
   direction: 'vertical',
   smooth: true,
+  smoothTouch: false,
+  wheelMultiplier: 0.85,
+  touchMultiplier: 1,
+  infinite: false,
 });
+
 function raf(time) {
   lenis.raf(time);
   requestAnimationFrame(raf);
@@ -541,26 +546,52 @@ var obs=new IntersectionObserver(function(entries){
 },{threshold:0.2,rootMargin:'0px 0px -60px 0px'});
 document.querySelectorAll('[data-reveal="scroll"],.reveal').forEach(function(el){obs.observe(el)});
 
-// Smooth Parallax Video on scroll (Replaces choppy scrubbing)
+// Smooth Parallax Video on scroll
 (function(){
-  var v=document.getElementById('heroVideo');
-  var container=document.querySelector('.hero-container');
-  if(!v||!container)return;
-  
-  // Set video to smoothly autoplay loop rather than scrub skip frames
+  var v = document.getElementById('heroVideo');
+  var container = document.querySelector('.hero-container');
+  if(!v || !container) return;
+
   v.loop = true;
   var playPromise = v.play();
-  if(playPromise !== undefined){ playPromise.catch(function(){}); }
-  
-  // Tie the true parallax effect to the Lenis scroll for extreme smoothness
-  lenis.on('scroll', function() {
-    var rect=container.getBoundingClientRect();
-    var h=container.offsetHeight-window.innerHeight;
-    if(h>0){
-      var p=Math.max(0,Math.min(1,-rect.top/h));
-      // Moving up 30dvh to exactly match the extra 30dvh height, preventing blank gaps
-      v.style.transform = 'translateY(' + (-30 * p) + 'dvh) scale(1.02)';
+  if (playPromise !== undefined) {
+    playPromise.catch(function(){});
+  }
+
+  var currentY = 0;
+  var targetY = 0;
+  var ticking = false;
+
+  function updateParallax() {
+    var rect = container.getBoundingClientRect();
+    var h = container.offsetHeight - window.innerHeight;
+
+    if (h > 0) {
+      var p = Math.max(0, Math.min(1, -rect.top / h));
+      targetY = -30 * p;
+    } else {
+      targetY = 0;
     }
+
+    currentY += (targetY - currentY) * 0.08;
+    v.style.transform = 'translate3d(0,' + currentY + 'dvh,0) scale(1.02)';
+
+    if (Math.abs(targetY - currentY) > 0.02) {
+      requestAnimationFrame(updateParallax);
+    } else {
+      ticking = false;
+    }
+  }
+
+  lenis.on('scroll', function() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(updateParallax);
+    }
+  });
+
+  window.addEventListener('load', function() {
+    requestAnimationFrame(updateParallax);
   });
 })();
 
