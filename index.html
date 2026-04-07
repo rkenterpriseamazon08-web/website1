@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>R.K. ENTERPRISE | Container Living and Working, Redefined</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Premium container houses, porta cabins and farmhouse containers by R.K. Enterprise.">
+  <link rel="stylesheet" href="style.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+</head>
+
+<body>
+
+<header class="header">
+  <a href="index.html#home" class="logo">
+    <img src="assets/logo22.png" alt="R.K. ENTERPRISE Logo" />
+  </a>
+
+  <div class="nav-wrapper">
+  <div class="menu-toggle" id="menuToggle">&#9776;</div>
+
+  <nav class="nav" id="navMenu">
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#calculator">Price Calculator</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
+
+</header>
+
+
+
+<section class="hero">
+  <div class="hero-slideshow">
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  
+
+  <div class="hero-content">
+    <h1 class="slide-in-left">CONTAINER LIVING AND WORKING,<br><span>REDEFINED</span></h1>
+    <p class="slide-in-right">Premium Container Houses, Porta Cabins & Custom Container Solutions</p>
+
+    <div class="hero-buttons">
+      <a href="#calculator" class="btn primary fade-in delay-1">Get Price</a>
+    <a href="https://wa.me/916291465527" class="btn outline fade-in delay-2">WhatsApp</a></a>
+    </div>
+  </div>
+</section>
+
+<section class="solutions-header">
+ <div class="split-text-container scroll-split">
+    <h2 class="text-part left">Our</span>
+    <h2 class="text-part right">Solutions</span>
+</div>
+</section>
+
+
+
+<section id="products" class="products">
+
+   <!-- Background Video -->
+  <div class="bg-video-wrapper" id="bgVideoWrapper">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="assets/vid3.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Dark Overlay -->
+  <div class="video-overlay"></div>
+
+ <div class="product-slider-wrapper premium-slider">
+
+  <button class="slider-btn left" onclick="slideProducts(-1)">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+
+ 
+  <span class="section-divider"></span>
+ <div class="product-slider" id="productSlider">
+
+    <a href="casa-uno-product.html" class="product-card">
+      <img src="assets/house1.jpg" alt="Container Houses">
+      <span class="explore-btn">Explore</span>
+      <h3>Casa UNO</h3>
+    </a>
+
+    <a href="casa-duo-product.html" class="product-card">
+      <img src="assets/ms-porta-cabins1.jpg" alt="MS Porta Cabins">
+      <span class="explore-btn">Explore</span>
+      <h3>Casa DUO</h3>
+    </a>
+
+    <a href="office-pod-product.html" class="product-card">
+      <img src="assets/officecat.jpeg" alt="Portable Offices">
+      <span class="explore-btn">Explore</span>
+      <h3>Office POD</h3>
+    </a>
+
+    <a href="security-cabin-product.html" class="product-card">
+      <img src="assets/porta-cabins1.webp" alt="Security Cabins">
+      <span class="explore-btn">Explore</span>
+      <h3>Security CABIN</h3>
+    </a>
+
+    <a href="casa-eleve-product.html" class="product-card">
+      <img src="assets/farmhouse1.jpeg" alt="Farmhouse Containers">
+      <span class="explore-btn">Explore</span>
+      <h3>Casa ELEVÈ</h3>
+    </a>
+
+  
+
+  <a href="cafe-and-cargo-product.html" class="product-card">
+      <img src="assets/cafecat.jpeg" alt="Container Houses">
+      <span class="explore-btn">Explore</span>
+      <h3>Cafe CARGO</h3>
+    </a>
+    
+    
+
+    <a href="dome-product.html" class="product-card">
+      <img src="assets/domecat.jpeg" alt="Custom Containers">
+      <span class="explore-btn">Explore</span>
+      <h3>DOME</h3>
+    </a>
+ <a href="gallery.html?type=portable-offices" class="product-card">
+      <img src="assets/spr1.jpg" alt="Portable Offices">
+      <span class="explore-btn">Explore</span>
+      <h3>Storage CONTAINER</h3>
+    </a>
+
+    <a href="gallery.html?type=custom" class="product-card">
+      <img src="assets/Custom-Shipping-Containers1.jpg" alt="Custom Containers">
+      <span class="explore-btn">Explore</span>
+      <h3>Cargo CRASH</h3>
+    </a>
+  </div>
+
+  <button class="slider-btn right" onclick="slideProducts(1)">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+</div>
+
+</section>
+
+<section class="design-cta">
+  <div class="design-cta-content">
+    <h2 class="slide-in-right">Design Your Container House</h2>
+    <p class="slide-in-right">Create your custom container layout with our interactive 2D design tool.</p>
+
+    <a href="2d-configurator.html
+    " class="design-btn shine-btn">
+      Start Your Design
+    </a>
+  </div>
+</section>
+
+<section id="calculator" class="section-dark">
+  <h2 >Instant Price Calculator</h2>
+
+  <div class="calculator">
+
+    <label>Container Size</label>
+    <select id="containerSize">
+      <option value="20x10">20 × 10 (200 sq.ft)</option>
+      <option value="30x10">30 × 10 (300 sq.ft)</option>
+      <option value="40x10">40 × 10 (400 sq.ft)</option>
+    </select>
+
+    <label>Number of Bedrooms</label>
+    <select id="bedrooms">
+      <option value="1">1 Bedroom</option>
+      <option value="2">2 Bedrooms</option>
+    </select>
+
+    <label>Flooring Type</label>
+    <select id="flooring">
+      <option value="cement">Cement Board + Mat (Free)</option>
+      <option value="tiles">Ceramic Tiles</option>
+      <option value="wood">Wooden Flooring</option>
+    </select>
+
+    <label>Kitchen</label>
+    <select id="kitchen">
+      <option value="0">No</option>
+      <option value="25000">Yes</option>
+    </select>
+
+    <label>Toilet</label>
+    <select id="toilet">
+      <option value="0">No</option>
+      <option value="18000">Yes</option>
+    </select>
+
+    <label>Bed Options</label>
+    <select id="bedType">
+      <option value="none">None</option>
+      <option value="single">Single Bed</option>
+      <option value="double">Double Bed</option>
+      <option value="bunk">Bunk Bed</option>
+    </select>
+
+    <label>Number of Beds Required</label>
+   <input type="number" id="bedCount" min="0" value="0" class="full-input">
+
+   <button id="calculateBtn" class="calc-btn">
+  Calculate Price
+</button>
+
+<!-- Popup Modal -->
+<div id="priceModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+
+    <h2>Proceed with Details</h2>
+
+    <form id="popupForm">
+      <label>Full Name *</label>
+      <input type="text" id="name" required>
+
+      <label>Mobile Number *</label>
+      <input type="tel" id="mobile" required pattern="[0-9]{10}" placeholder="10-digit number">
+
+      <label>Email *</label>
+      <input type="email" id="email" required>
+      
+      <label>Full Address *</label>
+      <input type="text" id="address" required>
+      
+      <label>City *</label>
+      <input type="text" id="city" >
+
+      <label>Pincode *</label>
+      <input type="tel" id="pincode" required pattern="[0-9]{6}" placeholder="6 digit pincode">
+      <label class="question-label">
+        Do you have truck accessible road? <span>*</span>
+      </label>
+     
+     
+      <div class="radio-group">
+
+  
+
+        <select id="truckAccess">
+          <option value="">Select</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        
+
+        
+      </div>
+      
+      <button type="submit" class="submit-btn">Proceed</button>
+    </form>
+  </div>
+</div>
+
+<div id="total" class="total-box">
+  Total: ₹0
+</div>
+
+
+  </div>
+</section>
+
+  
+<div class="price-disclaimer">
+  <p><strong>THE TOTAL PRICE SHOWN ABOVE IS BASED ON ASSUMPTIONS AND IS SUBJECTED TO NEGOTIATION</strong></p>
+  <p><strong>THE TOTAL PRICE SHOWN ABOVE DOES NOT INCLUDE 18% GST AND EFFECTIVE TRANSPORT CHARGES</strong></p>
+</div>
+  
+<section class="our-process" id="process">
+  
+    <div class="process-header">
+      <h2 class="process-heading">HOW IT WORKS</h2>
+      <div class="process-divider"></div>
+      <p class="process-subtitle">
+        From idea to installation – a smooth & transparent journey
+      </p>
+    </div>
+  
+
+
+
+  <div class="process-container">
+
+    <div class="process-card">
+      <div class="step-badge">Step 1</div>
+      <div class="icon">📞</div>
+      <h3>Consultation</h3>
+      <p>Understanding your needs, budget, and project expectations.</p>
+    </div>
+
+    <div class="process-arrow">➜</div>
+
+    <div class="process-card">
+      <div class="step-badge">Step 2</div>
+      <div class="icon">📐</div>
+      <h3>Design & Planning</h3>
+      <p>Custom layouts, materials, and cost optimization planning.</p>
+    </div>
+
+    <div class="process-arrow">➜</div>
+
+    <div class="process-card">
+      <div class="step-badge">Step 3</div>
+      <div class="icon">🏭</div>
+      <h3>Manufacturing</h3>
+      <p>Precision fabrication with strict quality checks.</p>
+    </div>
+
+    <div class="process-arrow">➜</div>
+
+    <div class="process-card">
+      <div class="step-badge">Step 4</div>
+      <div class="icon">🚚</div>
+      <h3>Delivery & Installation</h3>
+      <p>On-time delivery and hassle-free on-site installation.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="contact-section" id="contact">
+  <h2 class="contact-title">Contact Us</h2>
+
+  <p class="contact-info">
+    Kolkata, West Bengal | Service within 1000 KM from factory location
+  </p>
+
+  <p class="contact-info">
+    Factory Locations: Bardhaman (WB) & Faridabad (Delhi)
+  </p>
+
+  <div class="contact-buttons">
+
+    <a href="tel:+916291465527" class="contact-btn call">
+      📞 Call Us
+    </a>
+
+    <a href="mailto:rkenterpriseamazon08@gmail.com" class="contact-btn email">
+      ✉️ Email Us
+    </a>
+
+    <a href="https://maps.app.goo.gl/UQVY5eGnETHzunAE9?g_st=ipc"
+       target="_blank"
+       class="contact-btn location">
+      📍 Burdwan Warehouse Location
+    </a>
+    <a href="https://maps.app.goo.gl/UkuZZ4gQx7FzWSFT9?g_st=ipc"
+    target="_blank"
+    class="contact-btn location">
+   📍 Faridabad Warehouse Location
+ </a>
+  </div>
+
+  <div class="contact-marquee">
+    <p class="contact-numbers"> Call us on
+      +91-6291465527&nbsp;&nbsp;|&nbsp;&nbsp;
+      +91-9831220899&nbsp;&nbsp;|&nbsp;&nbsp;
+      +91-9007414504 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Write us over rkenterpriseamazon08@gmail.com 
+    </p>
+  </div>
+  
+</section>
+
+
+<footer class="site-footer">
+  <div class="footer-container">
+<!-- Brand -->
+<div class="footer-brand">
+  <img src="assets/logo.png" alt="R.K. Enterprise Logo">
+  <h3>R.K. ENTERPRISE</h3>
+  <p>Container Living & Working, Redefined</p>
+</div>
+   
+    
+
+    <!-- Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="aboutus.html">About Us</a>
+      <a href="customers.html">Our Customers</a>
+      <a href="products.html">Products</a>
+      <a href="#calculator">Price Calculator</a>
+      <a href="contactus.html">Contact Us</a>
+    </div>
+
+    <!-- Policies -->
+    <div class="footer-links">
+      <h4>Policies</h4>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="payment-terms.html">Payment Terms</a>
+      <a href="refund-policy.html">Refund Policy</a>
+      <a href="shipping-policy.html">Shipping Policy</a>
+      <a href="terms-and-conditions.html">Terms & Conditions</a>
+    </div>
+
+
+    <div class="footer-social">
+      <p class="find-us-text">Find us here</p>
+    
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2024 R.K. Enterprise. All Rights Reserved.
+  </div>
+</footer>
+
+
+  
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

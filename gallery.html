@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Gallery | R.K. ENTERPRISE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="#home" class="logo">
+  <img src="assets/logo.png" alt="R.K. ENTERPRISE Logo">
+  <span>R.K. ENTERPRISE</span>
+</a>
+
+  <div class="nav-wrapper">
+  <div class="menu-toggle" id="menuToggle">&#9776;</div>
+
+  <nav class="nav" id="navMenu">
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#calculator">Price Calculator</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
+
+</header>
+
+<section class="products">
+  <h2 id="gallery-title">Gallery</h2>
+
+  <div id="gallery-grid" class="product-grid"></div>
+
+  <!-- Enquiry Button -->
+  <div style="margin-top:40px;">
+    <a id="enquiryBtn" class="btn primary" target="_blank">
+      Enquire on WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span onclick="closeLightbox()">✕</span>
+  <img id="lightboxImg">
+  <div class="swipe-hint">⬅ Swipe ➡</div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get("type");
+
+  const titles = {
+    "container-houses": "Container Houses",
+    "porta-cabins": "MS Porta Cabins",
+    "portable-offices": "Portable Offices",
+    "security-cabins": "Security Cabins",
+    "farmhouse": "Farmhouse Container Homes",
+    "custom": "Custom Container Solutions"
+  };
+
+  document.getElementById("gallery-title").innerText = titles[type] || "Gallery";
+
+  const grid = document.getElementById("gallery-grid");
+  let images = [];
+  let currentIndex = 0;
+
+  for (let i = 1; i <= 20; i++) {
+    const img = document.createElement("img");
+    img.src = `assets/products/${type}/${i}.jpg`;
+    img.className = "gallery-img";
+    img.onclick = () => openLightbox(i - 1);
+    img.onerror = () => img.remove();
+    grid.appendChild(img);
+    images.push(img.src);
+  }
+
+  // WhatsApp enquiry
+  document.getElementById("enquiryBtn").href =
+    `https://wa.me/916291465527?text=I%20am%20interested%20in%20${titles[type]}`;
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = images[currentIndex];
+    lightbox.classList.add("show");
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("show");
+  }
+
+  // Mobile swipe support
+  let startX = 0;
+
+  lightbox.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  lightbox.addEventListener("touchend", e => {
+    let endX = e.changedTouches[0].clientX;
+    if (endX < startX - 50) nextImage();
+    if (endX > startX + 50) prevImage();
+  });
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImg.src = images[currentIndex];
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImg.src = images[currentIndex];
+  }
+</script>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      © 2024 R.K. Enterprise. All Rights Reserved.
+    </div>
+
+    <div class="footer-right">
+      <a href="about.html">About Us</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="payment-terms.html">Payment Terms</a>
+      <a href="refund-policy.html">Refund Policy</a>
+      <a href="shipping-policy.html">Shipping Policy</a>
+      <a href="terms-and-conditions.html">Terms & Conditions</a>
+      <a href="customers.html">Our Customers</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
