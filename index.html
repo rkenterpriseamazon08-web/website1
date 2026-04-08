@@ -508,93 +508,145 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 
 <a href="https://wa.me/916291465527" target="_blank" style="position:fixed;bottom:24px;right:24px;z-index:900;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,0.3);transition:transform .3s;font-size:1.5rem" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">💬</a>
 
-
-
+<script>
 // Preloader: instant dismiss
-document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){document.getElementById('preloader').classList.add('hidden')},600)});
-setTimeout(function(){var p=document.getElementById('preloader');if(p)p.classList.add('hidden')},2000);
+document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(function () {
+    var preloader = document.getElementById('preloader');
+    if (preloader) preloader.classList.add('hidden');
+  }, 600);
+});
+
+setTimeout(function () {
+  var p = document.getElementById('preloader');
+  if (p) p.classList.add('hidden');
+}, 2000);
 
 // Hero panel 1: show immediately
-(function(){
-  var first=document.querySelector('[data-reveal="hero"]');
-  if(first)setTimeout(function(){first.classList.add('visible')},400);
+(function () {
+  var first = document.querySelector('[data-reveal="hero"]');
+  if (first) {
+    setTimeout(function () {
+      first.classList.add('visible');
+    }, 400);
+  }
 })();
 
 // Scroll reveal for hero panels + rest of site
-var obs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+var obs = new IntersectionObserver(function (entries) {
+  entries.forEach(function (e) {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
   });
-},{threshold:0.2,rootMargin:'0px 0px -60px 0px'});
-document.querySelectorAll('[data-reveal="scroll"],.reveal').forEach(function(el){obs.observe(el)});
+}, { threshold: 0.2, rootMargin: '0px 0px -60px 0px' });
 
-// Smooth Parallax Video on scroll
-(function(){
+document.querySelectorAll('[data-reveal="scroll"], .reveal').forEach(function (el) {
+  obs.observe(el);
+});
+
+// Hero video parallax on normal browser scroll
+(function () {
   var v = document.getElementById('heroVideo');
   var container = document.querySelector('.hero-container');
-  if(!v || !container) return;
+  if (!v || !container) return;
 
   v.loop = true;
   var playPromise = v.play();
   if (playPromise !== undefined) {
-    playPromise.catch(function(){});
+    playPromise.catch(function () {});
   }
 
-  var currentY = 0;
-  var targetY = 0;
-  var ticking = false;
-
-  function updateParallax() {
+  function updateHeroParallax() {
     var rect = container.getBoundingClientRect();
     var h = container.offsetHeight - window.innerHeight;
 
     if (h > 0) {
       var p = Math.max(0, Math.min(1, -rect.top / h));
-      targetY = -30 * p;
+      v.style.transform = 'translateY(' + (-30 * p) + 'dvh) scale(1.02)';
     } else {
-      targetY = 0;
-    }
-
-    currentY += (targetY - currentY) * 0.08;
-    v.style.transform = 'translate3d(0,' + currentY + 'dvh,0) scale(1.02)';
-
-    if (Math.abs(targetY - currentY) > 0.02) {
-      requestAnimationFrame(updateParallax);
-    } else {
-      ticking = false;
+      v.style.transform = 'translateY(0) scale(1.02)';
     }
   }
-function updateHeroParallax() {
-  var rect = container.getBoundingClientRect();
-  var h = container.offsetHeight - window.innerHeight;
-  if (h > 0) {
-    var p = Math.max(0, Math.min(1, -rect.top / h));
-    v.style.transform = 'translateY(' + (-30 * p) + 'dvh) scale(1.02)';
-  }
-}
 
-window.addEventListener('scroll', updateHeroParallax, { passive: true });
-window.addEventListener('load', updateHeroParallax);
-  window.addEventListener('load', function() {
-    requestAnimationFrame(updateParallax);
-  });
+  window.addEventListener('scroll', updateHeroParallax, { passive: true });
+  window.addEventListener('load', updateHeroParallax);
 })();
 
 // Nav scroll
-window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>80)},{passive:true});
-function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+window.addEventListener('scroll', function () {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
+}, { passive: true });
+
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
 
 // Tier tabs
-function showTier(id,el){document.querySelectorAll('.tier-tab').forEach(function(t){t.classList.remove('active')});document.querySelectorAll('.tier-content').forEach(function(c){c.classList.remove('active')});el.classList.add('active');document.getElementById('tier-'+id).classList.add('active')}
+function showTier(id, el) {
+  document.querySelectorAll('.tier-tab').forEach(function (t) {
+    t.classList.remove('active');
+  });
+  document.querySelectorAll('.tier-content').forEach(function (c) {
+    c.classList.remove('active');
+  });
+  el.classList.add('active');
+  document.getElementById('tier-' + id).classList.add('active');
+}
 
 // FAQ
-function toggleFaq(btn){var item=btn.closest('.faq-item');document.querySelectorAll('.faq-item.open').forEach(function(i){if(i!==item)i.classList.remove('open')});item.classList.toggle('open')}
+function toggleFaq(btn) {
+  var item = btn.closest('.faq-item');
+  document.querySelectorAll('.faq-item.open').forEach(function (i) {
+    if (i !== item) i.classList.remove('open');
+  });
+  item.classList.toggle('open');
+}
 
 // Calculator
-function calcPrice(){var b={home:{basic:180000,standard:275000,premium:450000},office:{basic:150000,standard:320000,premium:500000},cafe:{basic:130000,standard:350000,premium:600000},security:{basic:85000,standard:160000,premium:250000},storage:{basic:80000,standard:120000,premium:180000}};var ty=document.getElementById('calcType').value,sz=document.getElementById('calcSize').value,ti=document.getElementById('calcTier').value;var p=(b[ty]&&b[ty][ti])||275000;if(sz==='40')p*=1.6;var f=document.getElementById('calcFloor').value;if(f==='vinyl')p+=15000;else if(f==='tiles')p+=25000;else if(f==='wood')p+=35000;if(document.getElementById('calcKitchen').value==='yes')p+=35000;if(document.getElementById('calcToilet').value==='yes')p+=30000;if(document.getElementById('calcAC').value==='yes')p+=25000;var ins=document.getElementById('calcInsulation').value;if(ins==='glasswool')p+=15000;else if(ins==='puf')p+=30000;document.getElementById('calcTotal').textContent='\u20B9'+p.toLocaleString('en-IN')}
+function calcPrice() {
+  var b = {
+    home: { basic: 180000, standard: 275000, premium: 450000 },
+    office: { basic: 150000, standard: 320000, premium: 500000 },
+    cafe: { basic: 130000, standard: 350000, premium: 600000 },
+    security: { basic: 85000, standard: 160000, premium: 250000 },
+    storage: { basic: 80000, standard: 120000, premium: 180000 }
+  };
 
-// Form → WhatsApp
-function handleSubmit(e){e.preventDefault();var f=e.target.querySelectorAll('input,select,textarea');var msg="Hi RK Enterprise,%0A%0AName: "+encodeURIComponent(f[0].value)+"%0APhone: "+encodeURIComponent(f[1].value)+"%0AEmail: "+encodeURIComponent(f[2].value||"N/A")+"%0ACity: "+encodeURIComponent(f[3].value)+"%0AInterested In: "+encodeURIComponent(f[4].value)+"%0ADetails: "+encodeURIComponent(f[5].value||"N/A");window.open("https://wa.me/916291465527?text="+msg, "_blank");}
+  var ty = document.getElementById('calcType').value;
+  var sz = document.getElementById('calcSize').value;
+  var ti = document.getElementById('calcTier').value;
+
+  var p = (b[ty] && b[ty][ti]) || 275000;
+
+  if (sz === '40') p *= 1.6;
+
+  var f = document.getElementById('calcFloor').value;
+  if (f === 'vinyl') p += 15000;
+  else if (f === 'tiles') p += 25000;
+  else if (f === 'wood') p += 35000;
+
+  if (document.getElementById('calcKitchen').value === 'yes') p += 35000;
+  if (document.getElementById('calcToilet').value === 'yes') p += 30000;
+  if (document.getElementById('calcAC').value === 'yes') p += 25000;
+
+  var ins = document.getElementById('calcInsulation').value;
+  if (ins === 'glasswool') p += 15000;
+  else if (ins === 'puf') p += 30000;
+
+  document.getElementById('calcTotal').textContent =
+    '₹' + Math.round(p).toLocaleString('en-IN');
+}
+
+// Contact form
+function handleSubmit(e) {
+  e.preventDefault();
+  alert("Thank you! We'll get back to you within 2 hours.");
+  e.target.reset();
+}
+
+// Init calculator on load
+window.addEventListener('load', calcPrice);
 </script>
-</body>
-</html>
+
