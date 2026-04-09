@@ -144,10 +144,10 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 .tier-tab.active{color:var(--gold)}.tier-tab.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold)}
 .tier-content{display:none}.tier-content.active{display:block}
 .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.tier-card{background:rgba(200,164,94,0.02);border:1px solid rgba(200,164,94,0.07);padding:44px 32px;transition:all .5s var(--ease);position:relative;overflow:visible}
+.tier-card{background:rgba(200,164,94,0.02);border:1px solid rgba(200,164,94,0.07);padding:44px 32px;transition:all .5s var(--ease);position:relative;overflow:hidden}
 .tier-card:hover{border-color:rgba(200,164,94,0.18);transform:translateY(-4px)}
 .tier-card.featured{border-color:rgba(200,164,94,0.25)}
-.tier-card.featured::before{content:'MOST POPULAR';position:absolute;top:22px;right:-28px;background:var(--gold);color:var(--dark);font-size:.52rem;letter-spacing:2px;padding:5px 44px;transform:rotate(45deg);font-weight:700;z-index:10;overflow:visible;}
+.tier-card.featured::before{content:'MOST POPULAR';position:absolute;top:18px;right:-26px;background:var(--gold);color:var(--dark);font-size:.5rem;letter-spacing:1.5px;padding:4px 36px;transform:rotate(45deg);font-weight:700}
 .tier-card-name{font-size:.65rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:600}
 .tier-card h3{font-family:var(--serif);font-size:1.7rem;font-weight:400;margin-bottom:8px}
 .tier-card-price{font-family:var(--serif);font-size:1.35rem;color:var(--gold);margin-bottom:28px}
