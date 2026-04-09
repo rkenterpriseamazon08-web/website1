@@ -386,7 +386,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 
   <!-- Sticky video background -->
   <div class="hero-bg">
-    <video id="heroVideo" muted playsinline preload="metadata" poster="./assets/render-luxury.png">
+    <video id="heroVideo" muted playsinline loop preload="metadata" poster="./assets/render-luxury.png">
       <source src="./assets/hero-video.mp4" type="video/mp4">
     </video>
   </div>
@@ -835,6 +835,23 @@ function openCartModal() {
   document.body.style.overflow='hidden';
   renderCartModal();
 }
+
+function renderCartGuestPrompt() {
+  var body = document.getElementById('cartModalBody');
+  var footer = document.getElementById('cartFooter');
+  if (!body) return;
+  if (footer) footer.style.display = 'none';
+  body.innerHTML =
+    '<div class="cart-empty">' +
+      '<div class="cart-empty-icon">🔒</div>' +
+      '<p style="font-size:.95rem;font-weight:500;color:var(--text)">Sign in to use your cart</p>' +
+      '<p>Create a free account or log in to save products, get quotes, and track your enquiries.</p>' +
+      '<div style="display:flex;flex-direction:column;gap:10px;margin-top:24px;width:100%;max-width:260px">' +
+        '<button class="auth-submit-btn" style="margin:0" onclick="closeCartModal();openSignupModal()">Create Account →</button>' +
+        '<button class="btn-outline" style="justify-content:center;padding:13px" onclick="closeCartModal();openLoginModal()">Sign In</button>' +
+      '</div>' +
+    '</div>';
+}
 function closeCartModal() {
   document.getElementById('cartModal').classList.remove('open');
   document.body.style.overflow='';
@@ -892,8 +909,8 @@ async function signupUser(payload) {
       return null;
     }
     setStoredUser(response.user);
-    if (response.cart) setStoredCart(response.cart);
-    await syncLocalCartAfterLogin(response.user);
+    // New signup always starts with a blank cart — don't carry over guest items
+    setStoredCart([]);
     showAuthMsg('signupSuccess', 'Account created! Welcome, ' + response.user.name + ' 🎉', false);
     setTimeout(closeAllAuthModals, 1200);
     return response.user;
@@ -1088,6 +1105,7 @@ function configToTags(config) {
 }
 
 function renderCartModal() {
+  if (!getStoredUser()) { renderCartGuestPrompt(); return; }
   var cart = getStoredCart();
   var body = document.getElementById('cartModalBody');
   var totalEl = document.getElementById('cartTotalAmount');
