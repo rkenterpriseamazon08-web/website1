@@ -866,15 +866,27 @@ async function loginUserByEmail(email) {
 
 async function signupUser(payload) {
   var btn = document.getElementById('signupSubmitBtn');
-  if (btn) { btn.disabled=true; btn.textContent='Creating account…'; }
+  if (btn) { btn.disabled=true; btn.textContent='Checking…'; }
   try {
+    // Always check if email already exists BEFORE creating
+    if (payload.email) {
+      var checkRes = await apiPost('LOGIN_USER', {email: payload.email});
+      if (checkRes.success) {
+        // Email is already registered — show error with login link
+        var errEl = document.getElementById('signupError');
+        if (errEl) {
+          errEl.innerHTML = '⚠ This email is already registered. <a onclick="closeAllAuthModals();openLoginModal()" style="color:var(--gold);cursor:pointer;text-decoration:underline;font-weight:600">Sign in instead →</a>';
+          errEl.className = 'auth-error show';
+        }
+        if (btn) { btn.disabled=false; btn.textContent='Create Account →'; }
+        return null;
+      }
+    }
+
+    if (btn) btn.textContent='Creating account…';
     var response = await apiPost('CREATE_USER', payload);
     if (!response.success) {
-      // Duplicate email is the most common failure
       var msg = response.message || 'Signup failed';
-      if (msg.toLowerCase().includes('exist') || msg.toLowerCase().includes('already')) {
-        msg = 'This email is already registered. Please log in instead.';
-      }
       showAuthMsg('signupError', msg, true);
       if (btn) { btn.disabled=false; btn.textContent='Create Account →'; }
       return null;
@@ -927,17 +939,18 @@ function handleGoogleCredential(response) {
 }
 
 function triggerGoogleLogin() {
+  if (GOOGLE_CLIENT_ID.startsWith('YOUR_GOOGLE')) {
+    showAuthMsg('loginError', 'Google Sign-In is not configured yet. Please use the email form or contact us on WhatsApp.', true);
+    showAuthMsg('signupError', 'Google Sign-In is not configured yet. Please use the email form or contact us on WhatsApp.', true);
+    return;
+  }
   if (typeof google === 'undefined' || !google.accounts) {
-    alert('Google Sign-In is not available. Please add your Google Client ID in the script config.');
+    showAuthMsg('loginError', 'Google Sign-In failed to load. Please use the email form.', true);
     return;
   }
   google.accounts.id.prompt(function(notification){
     if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-      // Fallback: open accounts chooser
-      google.accounts.id.renderButton(
-        document.createElement('div'),
-        {theme:'outline',size:'large'}
-      );
+      google.accounts.id.renderButton(document.createElement('div'), {theme:'outline',size:'large'});
     }
   });
 }
@@ -959,8 +972,13 @@ function initMicrosoftOAuth() {
 }
 
 async function triggerMicrosoftLogin() {
+  if (MS_CLIENT_ID.startsWith('YOUR_MICROSOFT')) {
+    showAuthMsg('loginError', 'Microsoft Sign-In is not configured yet. Please use the email form or contact us on WhatsApp.', true);
+    showAuthMsg('signupError', 'Microsoft Sign-In is not configured yet. Please use the email form or contact us on WhatsApp.', true);
+    return;
+  }
   if (!msalInstance) {
-    alert('Microsoft Sign-In is not available. Please add your Microsoft Client ID in the script config.');
+    showAuthMsg('loginError', 'Microsoft Sign-In failed to load. Please use the email form.', true);
     return;
   }
   try {
