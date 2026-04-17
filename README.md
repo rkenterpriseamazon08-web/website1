@@ -1,2 +1,2 @@
 # R.K. Enterprise
-Website for containers
+Website for prefabricated container structures
