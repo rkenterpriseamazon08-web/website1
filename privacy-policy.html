@@ -2,364 +2,188 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Privacy Policy | R.K. Enterprise</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <title>Privacy Policy — RK Enterprise</title>
+  <meta name="description" content="Privacy Policy for RK Enterprise — how we collect, use, and protect your information.">
+  <link rel="icon" href="./assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ===== POLICY PAGES — UNIFIED DESIGN SYSTEM ===== */
-
-    /* ---- HERO ---- */
-    .policy-hero-dark {
-      padding: 150px 20px 90px;
-      text-align: center;
-      background: radial-gradient(circle at top center, #111100 0%, #080800 50%, #000 100%);
-      border-bottom: 1px solid rgba(245, 197, 66, 0.18);
-      position: relative;
-      overflow: hidden;
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --gold:#C8A45E;--gold-light:#E8D5A0;--gold-dark:#9A7B3A;
+      --charcoal:#1A1A1A;--dark:#0D0D0D;--smoke:#2A2A2A;
+      --text:#F5F0E8;--text-muted:rgba(245,240,232,0.6);
+      --serif:'Playfair Display',Georgia,serif;
+      --sans:'Plus Jakarta Sans',system-ui,sans-serif;
+      --ease:cubic-bezier(0.25,0.46,0.45,0.94);
+      --ease-out:cubic-bezier(0.16,1,0.3,1);
     }
-    .policy-hero-dark::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(255, 215, 0, 0.07) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .policy-page-icon {
-      font-size: 50px;
-      color: #f5c542;
-      margin-bottom: 22px;
-      display: block;
-      animation: iconPulse 3s ease-in-out infinite;
-    }
-    @keyframes iconPulse {
-      0%, 100% { filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4)); }
-      50%       { filter: drop-shadow(0 0 22px rgba(255, 215, 0, 0.95)); }
-    }
-    .policy-hero-dark h1 {
-      color: #ffd700;
-      font-size: clamp(28px, 5vw, 48px);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      text-shadow: 0 0 28px rgba(255, 215, 0, 0.45);
-      margin-bottom: 14px;
-    }
-    .policy-breadcrumb {
-      margin-top: 14px;
-      font-size: 13px;
-      color: #666;
-      letter-spacing: 0.5px;
-    }
-    .policy-breadcrumb a {
-      color: #f5c542;
-      text-decoration: none;
-      transition: color 0.25s;
-    }
-    .policy-breadcrumb a:hover { color: #fff; }
-
-    /* ---- CONTENT ---- */
-    .policy-content-dark {
-      background: #000;
-      padding: 80px 20px 100px;
-    }
-    .policy-container-dark {
-      max-width: 960px;
-      margin: 0 auto;
-      display: grid;
-      gap: 22px;
-    }
-
-    /* Intro block */
-    .policy-intro-block {
-      text-align: center;
-      color: #999;
-      font-size: 15px;
-      line-height: 1.85;
-      padding: 28px 32px 36px;
-      border-bottom: 1px solid rgba(245, 197, 66, 0.15);
-      margin-bottom: 8px;
-    }
-    .policy-intro-block strong { color: #f5c542; }
-
-    /* ---- CARDS ---- */
-    .policy-card {
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(245, 197, 66, 0.32);
-      border-radius: 14px;
-      padding: 28px 32px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .policy-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 4px; height: 100%;
-      background: linear-gradient(to bottom, #ffd700, transparent);
-      border-radius: 14px 0 0 14px;
-    }
-    .policy-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 40px rgba(255, 215, 0, 0.15);
-      border-color: rgba(245, 197, 66, 0.65);
-    }
-    .policy-card-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-    .policy-card-header i {
-      font-size: 20px;
-      color: #f5c542;
-      width: 44px; height: 44px;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(245, 197, 66, 0.09);
-      border-radius: 10px;
-      border: 1px solid rgba(245, 197, 66, 0.22);
-      flex-shrink: 0;
-    }
-    .policy-card h2 {
-      color: #ffd700;
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      margin: 0;
-    }
-    .policy-card p,
-    .policy-card li {
-      color: #bbb;
-      font-size: 14.5px;
-      line-height: 1.85;
-      margin: 0;
-    }
-    .policy-card ul { padding-left: 20px; margin: 0; }
-    .policy-card li { margin-bottom: 6px; }
-    .policy-card li::marker { color: #f5c542; }
-
-    /* Contact card */
-    .policy-contact-card {
-      text-align: center;
-      padding: 36px 30px;
-      border-radius: 16px;
-      border: 1px solid #f5c542;
-      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0,0,0,0.6) 100%);
-    }
-    .policy-contact-card i {
-      font-size: 32px;
-      color: #ffd700;
-      margin-bottom: 14px;
-      display: block;
-    }
-    .policy-contact-card h2 {
-      color: #ffd700;
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    .policy-contact-card p {
-      color: #ccc;
-      font-size: 14.5px;
-      line-height: 1.75;
-    }
-    .policy-contact-card a { color: #ffd700; text-decoration: none; }
-    .policy-contact-card a:hover { text-decoration: underline; }
-
-    /* ---- RESPONSIVE ---- */
-    @media (max-width: 768px) {
-      .policy-hero-dark   { padding: 120px 16px 70px; }
-      .policy-content-dark{ padding: 60px 14px 80px; }
-      .policy-card        { padding: 22px 18px; }
-      .policy-intro-block { padding: 20px 16px 28px; }
-      .policy-container-dark { gap: 16px; }
-    }
+    html{scroll-behavior:smooth;overflow-x:clip}
+    body{font-family:var(--sans);background:var(--dark);color:var(--text);line-height:1.65;overflow-x:clip;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+    button{cursor:pointer;border:none;background:none;font-family:inherit}
+    h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:22px 48px;display:flex;align-items:center;justify-content:space-between;transition:all .5s var(--ease);background:rgba(13,13,13,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(200,164,94,0.06)}
+    .nav-logo{display:flex;align-items:center;gap:14px}
+    .nav-logo img{height:34px}
+    .nav-logo span{font-family:'Copperplate Gothic Bold','Copperplate','Copperplate Gothic Light',serif;font-size:1.1rem;letter-spacing:4px;color:var(--gold);text-transform:uppercase;font-weight:500}
+    .nav-links{display:flex;gap:36px;align-items:center}
+    .nav-links a{font-size:.78rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--text-muted);transition:color .3s;font-weight:400}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-cta{padding:11px 30px;border:1px solid var(--gold) !important;color:var(--gold) !important;transition:all .4s var(--ease) !important}
+    .nav-cta:hover{background:var(--gold) !important;color:var(--dark) !important}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+    .nav-hamburger span{display:block;width:24px;height:1.5px;background:var(--gold)}
+    .mobile-menu{position:fixed;inset:0;z-index:999;background:rgba(13,13,13,0.98);backdrop-filter:blur(30px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;visibility:hidden;transition:all .5s var(--ease)}
+    .mobile-menu.open{opacity:1;visibility:visible}
+    .mobile-menu a{font-family:var(--serif);font-size:1.8rem;color:var(--text-muted);transition:color .3s}
+    .mobile-menu a:hover{color:var(--gold)}
+    .policy-hero{padding:180px 48px 100px;text-align:center;background:radial-gradient(ellipse at top center,#1A1400 0%,#0D0D0D 65%);position:relative;overflow:hidden;border-bottom:1px solid rgba(200,164,94,0.07)}
+    .policy-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(200,164,94,0.06) 0%,transparent 65%);pointer-events:none}
+    .policy-eyebrow{font-size:.66rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:22px;font-weight:500;display:block}
+    .policy-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:400;letter-spacing:-.5px;margin-bottom:20px}
+    .policy-hero h1 em{font-style:italic;color:var(--gold)}
+    .policy-breadcrumb{font-size:.72rem;color:var(--text-muted);letter-spacing:1.5px;margin-top:16px}
+    .policy-breadcrumb a{color:var(--gold);transition:color .3s}
+    .policy-breadcrumb a:hover{color:var(--gold-light)}
+    .policy-body{max-width:840px;margin:0 auto;padding:100px 48px 120px}
+    .policy-intro{font-size:1rem;color:var(--text-muted);font-weight:300;line-height:1.85;margin-bottom:72px;padding-bottom:48px;border-bottom:1px solid rgba(200,164,94,0.07)}
+    .policy-intro strong{color:var(--text);font-weight:500}
+    .policy-section{padding:44px 0;border-bottom:1px solid rgba(200,164,94,0.06);display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start}
+    .policy-section:last-of-type{border-bottom:none}
+    .policy-section-label{display:flex;flex-direction:column;gap:10px;padding-top:4px}
+    .policy-section-num{font-family:var(--serif);font-size:2.4rem;color:rgba(200,164,94,0.14);font-weight:400;line-height:1}
+    .policy-section h2{font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:0}
+    .policy-section-body p{font-size:.92rem;color:var(--text-muted);font-weight:300;line-height:1.85;margin-bottom:14px}
+    .policy-section-body p:last-child{margin-bottom:0}
+    .policy-section-body ul{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+    .policy-section-body li{font-size:.92rem;color:var(--text-muted);font-weight:300;line-height:1.7;padding-left:22px;position:relative}
+    .policy-section-body li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:.74rem;top:4px}
+    .policy-contact{margin-top:80px;padding:52px;border:1px solid rgba(200,164,94,0.12);text-align:center;background:rgba(200,164,94,0.02);position:relative;overflow:hidden}
+    .policy-contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(200,164,94,0.04) 0%,transparent 70%)}
+    .policy-contact .section-eyebrow{font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:500;display:block;position:relative}
+    .policy-contact h3{font-family:var(--serif);font-size:1.6rem;font-weight:400;margin-bottom:12px;position:relative}
+    .policy-contact p{font-size:.88rem;color:var(--text-muted);font-weight:300;line-height:1.8;margin-bottom:28px;max-width:400px;margin-left:auto;margin-right:auto;position:relative}
+    .btn-primary{padding:16px 42px;background:var(--gold);color:var(--dark);font-size:.78rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;transition:all .4s var(--ease);display:inline-flex;align-items:center;gap:8px;position:relative}
+    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 10px 40px rgba(200,164,94,0.2)}
+    .footer{padding:80px 48px 44px;border-top:1px solid rgba(200,164,94,0.06);background:var(--dark)}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}
+    .footer-brand p{color:var(--text-muted);font-size:.83rem;font-weight:300;line-height:1.85;margin-top:18px;max-width:280px}
+    .footer h4{font-size:.65rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:22px;font-family:var(--sans);font-weight:600}
+    .footer-links{display:flex;flex-direction:column;gap:12px}
+    .footer-links a{font-size:.83rem;color:var(--text-muted);font-weight:300;transition:color .3s}
+    .footer-links a:hover{color:var(--gold)}
+    .footer-bottom{max-width:1200px;margin:64px auto 0;padding-top:24px;border-top:1px solid rgba(200,164,94,0.05);display:flex;justify-content:space-between;align-items:center}
+    .footer-bottom p{font-size:.72rem;color:var(--text-muted);font-weight:300}
+    .footer-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+    .footer-logo-row img{height:30px}
+    .footer-logo-row span{font-family:'Copperplate Gothic Bold','Copperplate',serif;font-size:.95rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}
+    @media(max-width:1024px){.nav{padding:18px 28px}.policy-body{padding:80px 32px 100px}.footer-grid{grid-template-columns:1fr 1fr}.footer{padding:60px 32px 36px}}
+    @media(max-width:768px){.nav{padding:16px 20px}.nav-links{display:none}.nav-hamburger{display:flex}.policy-hero{padding:140px 20px 72px}.policy-body{padding:60px 20px 80px}.policy-section{grid-template-columns:1fr;gap:16px}.policy-section-num{font-size:1.8rem}.policy-contact{padding:36px 24px}.footer-grid{grid-template-columns:1fr;gap:32px}.footer{padding:52px 20px 28px}.footer-bottom{flex-direction:column;gap:10px;text-align:center;margin-top:36px}}
+    @media(max-width:480px){.nav{padding:12px 14px}.policy-hero{padding:120px 16px 60px}.policy-body{padding:44px 14px 60px}.footer{padding:44px 14px 24px}}
   </style>
 </head>
 <body>
-
-<!-- ===== HEADER ===== -->
-<header class="header">
-  <a href="index.html" class="logo">
-    <img src="assets/logo22.png" alt="R.K. ENTERPRISE Logo" />
-  </a>
-  <div class="nav-wrapper">
-    <div class="menu-toggle" id="menuToggle">&#9776;</div>
-    <nav class="nav" id="navMenu">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="index.html#calculator">Price Calculator</a>
-      <a href="index.html#process">Process</a>
-      <a href="contactus.html">Contact</a>
-    </nav>
+<nav class="nav" id="nav">
+  <a href="./index.html" class="nav-logo"><img src="./assets/logo.png" alt="RK Enterprise"><span>RK Enterprise</span></a>
+  <div class="nav-links">
+    <a href="./index.html#solutions">Solutions</a>
+    <a href="./index.html#gallery">Gallery</a>
+    <a href="./index.html#process">Process</a>
+    <a href="./index.html#calculator">Pricing</a>
+    <a href="./index.html#contact" class="nav-cta">Get a Quote</a>
   </div>
-</header>
+  <div class="nav-hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="./index.html#solutions" onclick="toggleMenu()">Solutions</a>
+  <a href="./index.html#gallery" onclick="toggleMenu()">Gallery</a>
+  <a href="./index.html#process" onclick="toggleMenu()">Process</a>
+  <a href="./index.html#calculator" onclick="toggleMenu()">Pricing</a>
+  <a href="./index.html#contact" onclick="toggleMenu()">Contact</a>
+</div>
 
-<!-- ===== HERO ===== -->
-<section class="policy-hero-dark">
-  <i class="fas fa-shield-halved policy-page-icon"></i>
-  <h1>Privacy Policy</h1>
-  <p class="policy-breadcrumb">
-    <a href="index.html">Home</a> &nbsp;/&nbsp; Privacy Policy
-  </p>
+<section class="policy-hero">
+  <span class="policy-eyebrow">Legal</span>
+  <h1>Privacy <em>Policy</em></h1>
+  <div class="policy-breadcrumb"><a href="./index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;Privacy Policy</div>
 </section>
 
-<!-- ===== CONTENT ===== -->
-<section class="policy-content-dark">
-  <div class="policy-container-dark">
+<div class="policy-body">
+  <p class="policy-intro reveal">This Privacy Policy explains how <strong>R.K. Enterprise</strong> collects, uses, and protects your personal information when you visit our website or use our services.</p>
 
-    <!-- Intro -->
-    <div class="policy-intro-block">
-      This Privacy Policy explains how <strong>R.K. Enterprise</strong>
-      collects, uses, and protects your personal information when you
-      visit our website or use our services.
-    </div>
-
-    <!-- Information We Collect -->
-    <div class="policy-card">
-      <div class="policy-card-header">
-        <i class="fas fa-database"></i>
-        <h2>Information We Collect</h2>
-      </div>
-      <p>
-        We may collect personal details such as your name, mobile number,
-        email address, city, address, and project requirements when you
-        submit forms or contact us.
-      </p>
-    </div>
-
-    <!-- How We Use Your Information -->
-    <div class="policy-card">
-      <div class="policy-card-header">
-        <i class="fas fa-gears"></i>
-        <h2>How We Use Your Information</h2>
-      </div>
-      <ul>
-        <li>To respond to your inquiries and requests</li>
-        <li>To provide quotations and service details</li>
-        <li>To improve our products and customer experience</li>
-        <li>For internal record keeping</li>
-      </ul>
-    </div>
-
-    <!-- Information Sharing -->
-    <div class="policy-card">
-      <div class="policy-card-header">
-        <i class="fas fa-share-nodes"></i>
-        <h2>Information Sharing</h2>
-      </div>
-      <p>
-        We do not sell, rent, or trade your personal information.
-        Information is shared only when required to deliver services
-        or comply with legal obligations.
-      </p>
-    </div>
-
-    <!-- Data Security -->
-    <div class="policy-card">
-      <div class="policy-card-header">
-        <i class="fas fa-lock"></i>
-        <h2>Data Security</h2>
-      </div>
-      <p>
-        We are committed to safeguarding your information using
-        appropriate technical and organizational security measures.
-      </p>
-    </div>
-
-    <!-- Cookies -->
-    <div class="policy-card">
-      <div class="policy-card-header">
-        <i class="fas fa-cookie-bite"></i>
-        <h2>Cookies</h2>
-      </div>
-      <p>
-        Our website may use cookies to enhance user experience.
-        You can choose to accept or decline cookies through your
-        browser settings.
-      </p>
-    </div>
-
-    <!-- External Links -->
-    <div class="policy-card">
-      <div class="policy-card-header">
-        <i class="fas fa-arrow-up-right-from-square"></i>
-        <h2>External Links</h2>
-      </div>
-      <p>
-        Our website may contain links to third-party websites.
-        We are not responsible for the privacy practices of those sites.
-      </p>
-    </div>
-
-    <!-- Policy Updates -->
-    <div class="policy-card">
-      <div class="policy-card-header">
-        <i class="fas fa-rotate"></i>
-        <h2>Policy Updates</h2>
-      </div>
-      <p>
-        This Privacy Policy may be updated from time to time.
-        Any changes will be reflected on this page.
-      </p>
-    </div>
-
-    <!-- Contact Information -->
-    <div class="policy-contact-card">
-      <i class="fas fa-envelope-open-text"></i>
-      <h2>Contact Information</h2>
-      <p>
-        If you have any questions regarding this Privacy Policy, contact us:<br>
-        <a href="contactus.html">Visit our Contact Page</a>
-      </p>
-    </div>
-
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">01</span><h2>Information We Collect</h2></div>
+    <div class="policy-section-body"><p>We may collect personal details such as your name, mobile number, email address, city, address, and project requirements when you submit forms or contact us.</p></div>
   </div>
-</section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="site-footer">
-  <div class="footer-container">
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">02</span><h2>How We Use Your Information</h2></div>
+    <div class="policy-section-body"><ul><li>To respond to your inquiries and requests</li><li>To provide quotations and service details</li><li>To improve our products and customer experience</li><li>For internal record keeping</li></ul></div>
+  </div>
 
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">03</span><h2>Information Sharing</h2></div>
+    <div class="policy-section-body"><p>We do not sell, rent, or trade your personal information. Information is shared only when required to deliver services or comply with legal obligations.</p></div>
+  </div>
+
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">04</span><h2>Data Security</h2></div>
+    <div class="policy-section-body"><p>We are committed to safeguarding your information using appropriate technical and organizational security measures.</p></div>
+  </div>
+
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">05</span><h2>Cookies</h2></div>
+    <div class="policy-section-body"><p>Our website may use cookies to enhance user experience. You can choose to accept or decline cookies through your browser settings.</p></div>
+  </div>
+
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">06</span><h2>External Links</h2></div>
+    <div class="policy-section-body"><p>Our website may contain links to third-party websites. We are not responsible for the privacy practices of those sites.</p></div>
+  </div>
+
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">07</span><h2>Policy Updates</h2></div>
+    <div class="policy-section-body"><p>This Privacy Policy may be updated from time to time. Any changes will be reflected on this page.</p></div>
+  </div>
+
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">08</span><h2>Contact Information</h2></div>
+    <div class="policy-section-body"><p>If you have any questions regarding this Privacy Policy, contact us:</p></div>
+  </div>
+
+  <div class="policy-contact reveal">
+    <span class="section-eyebrow">Have Questions?</span>
+    <h3>We're Here to Help</h3>
+    <p>Reach out to our team for any queries regarding this policy or your data.</p>
+    <a href="./index.html#contact" class="btn-primary">Contact Us →</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
     <div class="footer-brand">
-      <img src="assets/logo.png" alt="R.K. Enterprise Logo">
-      <h3>R.K. ENTERPRISE</h3>
-      <p>Container Living &amp; Working, Redefined</p>
+      <div class="footer-logo-row"><img src="./assets/logo.png" alt="RK Enterprise"><span>RK Enterprise</span></div>
+      <p>Containers with character. Premium modular solutions — crafted fast and delivered with care.</p>
     </div>
-
-    <div class="footer-links">
-      <h4>Quick Links</h4>
-      <a href="aboutus.html">About Us</a>
-      <a href="customers.html">Our Customers</a>
-      <a href="products.html">Products</a>
-      <a href="index.html#calculator">Price Calculator</a>
-      <a href="contactus.html">Contact Us</a>
-    </div>
-
-    <div class="footer-links">
-      <h4>Policies</h4>
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="payment-terms.html">Payment Terms</a>
-      <a href="refund-policy.html">Refund Policy</a>
-      <a href="shipping-policy.html">Shipping Policy</a>
-      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
-    </div>
-
-    <div class="footer-social">
-      <p class="find-us-text">Find us here</p>
-      <div class="social-icons">
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-      </div>
-    </div>
-
+    <div><h4>Solutions</h4><div class="footer-links"><a href="./container-homes.html">Container Homes</a><a href="./office-pods.html">Office Pods</a><a href="./cafe-retail.html">Café Containers</a><a href="./security-cabins.html">Security Cabins</a><a href="./storage-units.html">Storage Units</a></div></div>
+    <div><h4>Company</h4><div class="footer-links"><a href="./index.html#about">About Us</a><a href="./index.html#process">Our Process</a><a href="./index.html#gallery">Gallery</a><a href="./index.html#calculator">Pricing</a><a href="./index.html#contact">Contact</a></div></div>
+    <div><h4>Policies</h4><div class="footer-links"><a href="./privacy-policy.html">Privacy Policy</a><a href="./payment-terms.html">Payment Terms</a><a href="./refund-policy.html">Refund Policy</a><a href="./shipping-policy.html">Shipping Policy</a><a href="./terms-and-conditions.html">Terms &amp; Conditions</a></div></div>
   </div>
-  <div class="footer-bottom">
-    &copy; 2024 R.K. Enterprise. All Rights Reserved.
-  </div>
+  <div class="footer-bottom"><p>© 2025 RK Enterprise. All Rights Reserved.</p><p>Kolkata, West Bengal — Service within 1000 KM</p></div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+document.addEventListener('DOMContentLoaded',function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('visible');});return;}
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');io.unobserve(en.target);}});},{threshold:0.1});
+  els.forEach(function(el){io.observe(el);});
+});
+</script>
 </body>
 </html>
