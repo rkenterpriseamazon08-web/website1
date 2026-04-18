@@ -5,141 +5,347 @@
   <title>Privacy Policy | R.K. Enterprise</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" />
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    /* ===== POLICY PAGES — UNIFIED DESIGN SYSTEM ===== */
+
+    /* ---- HERO ---- */
+    .policy-hero-dark {
+      padding: 150px 20px 90px;
+      text-align: center;
+      background: radial-gradient(circle at top center, #111100 0%, #080800 50%, #000 100%);
+      border-bottom: 1px solid rgba(245, 197, 66, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+    .policy-hero-dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255, 215, 0, 0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .policy-page-icon {
+      font-size: 50px;
+      color: #f5c542;
+      margin-bottom: 22px;
+      display: block;
+      animation: iconPulse 3s ease-in-out infinite;
+    }
+    @keyframes iconPulse {
+      0%, 100% { filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4)); }
+      50%       { filter: drop-shadow(0 0 22px rgba(255, 215, 0, 0.95)); }
+    }
+    .policy-hero-dark h1 {
+      color: #ffd700;
+      font-size: clamp(28px, 5vw, 48px);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 0 0 28px rgba(255, 215, 0, 0.45);
+      margin-bottom: 14px;
+    }
+    .policy-breadcrumb {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #666;
+      letter-spacing: 0.5px;
+    }
+    .policy-breadcrumb a {
+      color: #f5c542;
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+    .policy-breadcrumb a:hover { color: #fff; }
+
+    /* ---- CONTENT ---- */
+    .policy-content-dark {
+      background: #000;
+      padding: 80px 20px 100px;
+    }
+    .policy-container-dark {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+    }
+
+    /* Intro block */
+    .policy-intro-block {
+      text-align: center;
+      color: #999;
+      font-size: 15px;
+      line-height: 1.85;
+      padding: 28px 32px 36px;
+      border-bottom: 1px solid rgba(245, 197, 66, 0.15);
+      margin-bottom: 8px;
+    }
+    .policy-intro-block strong { color: #f5c542; }
+
+    /* ---- CARDS ---- */
+    .policy-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(245, 197, 66, 0.32);
+      border-radius: 14px;
+      padding: 28px 32px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .policy-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(to bottom, #ffd700, transparent);
+      border-radius: 14px 0 0 14px;
+    }
+    .policy-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(255, 215, 0, 0.15);
+      border-color: rgba(245, 197, 66, 0.65);
+    }
+    .policy-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .policy-card-header i {
+      font-size: 20px;
+      color: #f5c542;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(245, 197, 66, 0.09);
+      border-radius: 10px;
+      border: 1px solid rgba(245, 197, 66, 0.22);
+      flex-shrink: 0;
+    }
+    .policy-card h2 {
+      color: #ffd700;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+    .policy-card p,
+    .policy-card li {
+      color: #bbb;
+      font-size: 14.5px;
+      line-height: 1.85;
+      margin: 0;
+    }
+    .policy-card ul { padding-left: 20px; margin: 0; }
+    .policy-card li { margin-bottom: 6px; }
+    .policy-card li::marker { color: #f5c542; }
+
+    /* Contact card */
+    .policy-contact-card {
+      text-align: center;
+      padding: 36px 30px;
+      border-radius: 16px;
+      border: 1px solid #f5c542;
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0,0,0,0.6) 100%);
+    }
+    .policy-contact-card i {
+      font-size: 32px;
+      color: #ffd700;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .policy-contact-card h2 {
+      color: #ffd700;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .policy-contact-card p {
+      color: #ccc;
+      font-size: 14.5px;
+      line-height: 1.75;
+    }
+    .policy-contact-card a { color: #ffd700; text-decoration: none; }
+    .policy-contact-card a:hover { text-decoration: underline; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      .policy-hero-dark   { padding: 120px 16px 70px; }
+      .policy-content-dark{ padding: 60px 14px 80px; }
+      .policy-card        { padding: 22px 18px; }
+      .policy-intro-block { padding: 20px 16px 28px; }
+      .policy-container-dark { gap: 16px; }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="header">
-    <a href="index.html#home" class="logo">
-      <img src="assets/logo22.png" alt="R.K. ENTERPRISE Logo" />
-    </a>
-  
-    <div class="nav-wrapper">
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <a href="index.html" class="logo">
+    <img src="assets/logo22.png" alt="R.K. ENTERPRISE Logo" />
+  </a>
+  <div class="nav-wrapper">
     <div class="menu-toggle" id="menuToggle">&#9776;</div>
-  
     <nav class="nav" id="navMenu">
-      <a href="#home">Home</a>
-      <a href="#products">Products</a>
-      <a href="#calculator">Price Calculator</a>
-      <a href="#process">Process</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="index.html#calculator">Price Calculator</a>
+      <a href="index.html#process">Process</a>
+      <a href="contactus.html">Contact</a>
     </nav>
   </div>
-  
-  </header>
+</header>
 
-<!-- HERO -->
+<!-- ===== HERO ===== -->
 <section class="policy-hero-dark">
+  <i class="fas fa-shield-halved policy-page-icon"></i>
   <h1>Privacy Policy</h1>
+  <p class="policy-breadcrumb">
+    <a href="index.html">Home</a> &nbsp;/&nbsp; Privacy Policy
+  </p>
 </section>
 
-<!-- CONTENT -->
+<!-- ===== CONTENT ===== -->
 <section class="policy-content-dark">
   <div class="policy-container-dark">
 
-    <p>
+    <!-- Intro -->
+    <div class="policy-intro-block">
       This Privacy Policy explains how <strong>R.K. Enterprise</strong>
       collects, uses, and protects your personal information when you
       visit our website or use our services.
-    </p>
+    </div>
 
-    <h2>Information We Collect</h2>
-    <p>
-      We may collect personal details such as your name, mobile number,
-      email address, city, address, and project requirements when you
-      submit forms or contact us.
-    </p>
+    <!-- Information We Collect -->
+    <div class="policy-card">
+      <div class="policy-card-header">
+        <i class="fas fa-database"></i>
+        <h2>Information We Collect</h2>
+      </div>
+      <p>
+        We may collect personal details such as your name, mobile number,
+        email address, city, address, and project requirements when you
+        submit forms or contact us.
+      </p>
+    </div>
 
-    <h2>How We Use Your Information</h2>
-    <ul>
-      <li>To respond to your inquiries and requests</li>
-      <li>To provide quotations and service details</li>
-      <li>To improve our products and customer experience</li>
-      <li>For internal record keeping</li>
-    </ul>
+    <!-- How We Use Your Information -->
+    <div class="policy-card">
+      <div class="policy-card-header">
+        <i class="fas fa-gears"></i>
+        <h2>How We Use Your Information</h2>
+      </div>
+      <ul>
+        <li>To respond to your inquiries and requests</li>
+        <li>To provide quotations and service details</li>
+        <li>To improve our products and customer experience</li>
+        <li>For internal record keeping</li>
+      </ul>
+    </div>
 
-    <h2>Information Sharing</h2>
-    <p>
-      We do not sell, rent, or trade your personal information.
-      Information is shared only when required to deliver services
-      or comply with legal obligations.
-    </p>
+    <!-- Information Sharing -->
+    <div class="policy-card">
+      <div class="policy-card-header">
+        <i class="fas fa-share-nodes"></i>
+        <h2>Information Sharing</h2>
+      </div>
+      <p>
+        We do not sell, rent, or trade your personal information.
+        Information is shared only when required to deliver services
+        or comply with legal obligations.
+      </p>
+    </div>
 
-    <h2>Data Security</h2>
-    <p>
-      We are committed to safeguarding your information using
-      appropriate technical and organizational security measures.
-    </p>
+    <!-- Data Security -->
+    <div class="policy-card">
+      <div class="policy-card-header">
+        <i class="fas fa-lock"></i>
+        <h2>Data Security</h2>
+      </div>
+      <p>
+        We are committed to safeguarding your information using
+        appropriate technical and organizational security measures.
+      </p>
+    </div>
 
-    <h2>Cookies</h2>
-    <p>
-      Our website may use cookies to enhance user experience.
-      You can choose to accept or decline cookies through your
-      browser settings.
-    </p>
+    <!-- Cookies -->
+    <div class="policy-card">
+      <div class="policy-card-header">
+        <i class="fas fa-cookie-bite"></i>
+        <h2>Cookies</h2>
+      </div>
+      <p>
+        Our website may use cookies to enhance user experience.
+        You can choose to accept or decline cookies through your
+        browser settings.
+      </p>
+    </div>
 
-    <h2>External Links</h2>
-    <p>
-      Our website may contain links to third-party websites.
-      We are not responsible for the privacy practices of those sites.
-    </p>
+    <!-- External Links -->
+    <div class="policy-card">
+      <div class="policy-card-header">
+        <i class="fas fa-arrow-up-right-from-square"></i>
+        <h2>External Links</h2>
+      </div>
+      <p>
+        Our website may contain links to third-party websites.
+        We are not responsible for the privacy practices of those sites.
+      </p>
+    </div>
 
-    <h2>Policy Updates</h2>
-    <p>
-      This Privacy Policy may be updated from time to time.
-      Any changes will be reflected on this page.
-    </p>
+    <!-- Policy Updates -->
+    <div class="policy-card">
+      <div class="policy-card-header">
+        <i class="fas fa-rotate"></i>
+        <h2>Policy Updates</h2>
+      </div>
+      <p>
+        This Privacy Policy may be updated from time to time.
+        Any changes will be reflected on this page.
+      </p>
+    </div>
 
-    <h2>Contact Information</h2>
-    <p>
-      If you have any questions regarding this Privacy Policy, contact us:
-    </p>
-
-  
+    <!-- Contact Information -->
+    <div class="policy-contact-card">
+      <i class="fas fa-envelope-open-text"></i>
+      <h2>Contact Information</h2>
+      <p>
+        If you have any questions regarding this Privacy Policy, contact us:<br>
+        <a href="contactus.html">Visit our Contact Page</a>
+      </p>
+    </div>
 
   </div>
 </section>
 
-<!-- Shared Footer -->
-
+<!-- ===== FOOTER ===== -->
 <footer class="site-footer">
   <div class="footer-container">
-<!-- Brand -->
-<div class="footer-brand">
-  <img src="assets/logo.png" alt="R.K. Enterprise Logo">
-  <h3>R.K. ENTERPRISE</h3>
-  <p>Container Living & Working, Redefined</p>
-</div>
-   
-    
 
-    <!-- Links -->
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="R.K. Enterprise Logo">
+      <h3>R.K. ENTERPRISE</h3>
+      <p>Container Living &amp; Working, Redefined</p>
+    </div>
+
     <div class="footer-links">
       <h4>Quick Links</h4>
       <a href="aboutus.html">About Us</a>
       <a href="customers.html">Our Customers</a>
       <a href="products.html">Products</a>
-      <a href="#calculator">Price Calculator</a>
+      <a href="index.html#calculator">Price Calculator</a>
       <a href="contactus.html">Contact Us</a>
     </div>
 
-    <!-- Policies -->
     <div class="footer-links">
       <h4>Policies</h4>
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="payment-terms.html">Payment Terms</a>
       <a href="refund-policy.html">Refund Policy</a>
       <a href="shipping-policy.html">Shipping Policy</a>
-      <a href="terms-and-conditions.html">Terms & Conditions</a>
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
     </div>
-
 
     <div class="footer-social">
       <p class="find-us-text">Find us here</p>
-    
       <div class="social-icons">
         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -147,12 +353,10 @@
         <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
       </div>
     </div>
-    
 
   </div>
-
   <div class="footer-bottom">
-    © 2024 R.K. Enterprise. All Rights Reserved.
+    &copy; 2024 R.K. Enterprise. All Rights Reserved.
   </div>
 </footer>
 
