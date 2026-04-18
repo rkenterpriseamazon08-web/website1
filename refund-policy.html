@@ -2,147 +2,179 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Refund Policy | R.K. Enterprise</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
+  <title>Refund Policy &mdash; RK Enterprise</title>
+  <meta name="description" content="Refund Policy for RK Enterprise — understand the terms under which refunds may be issued.">
+  <link rel="icon" href="./assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --gold:#C8A45E;--gold-light:#E8D5A0;--gold-dark:#9A7B3A;
+      --charcoal:#1A1A1A;--dark:#0D0D0D;--smoke:#2A2A2A;
+      --text:#F5F0E8;--text-muted:rgba(245,240,232,0.6);
+      --serif:'Playfair Display',Georgia,serif;
+      --sans:'Plus Jakarta Sans',system-ui,sans-serif;
+      --ease:cubic-bezier(0.25,0.46,0.45,0.94);
+      --ease-out:cubic-bezier(0.16,1,0.3,1);
+    }
+    html{scroll-behavior:smooth;overflow-x:clip}
+    body{font-family:var(--sans);background:var(--dark);color:var(--text);line-height:1.65;overflow-x:clip;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+    button{cursor:pointer;border:none;background:none;font-family:inherit}
+    h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:22px 48px;display:flex;align-items:center;justify-content:space-between;transition:all .5s var(--ease);background:rgba(13,13,13,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(200,164,94,0.06)}
+    .nav-logo{display:flex;align-items:center;gap:14px}
+    .nav-logo img{height:34px}
+    .nav-logo span{font-family:'Copperplate Gothic Bold','Copperplate','Copperplate Gothic Light',serif;font-size:1.1rem;letter-spacing:4px;color:var(--gold);text-transform:uppercase;font-weight:500}
+    .nav-links{display:flex;gap:36px;align-items:center}
+    .nav-links a{font-size:.78rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--text-muted);transition:color .3s;font-weight:400}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-cta{padding:11px 30px;border:1px solid var(--gold) !important;color:var(--gold) !important;transition:all .4s var(--ease) !important}
+    .nav-cta:hover{background:var(--gold) !important;color:var(--dark) !important}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+    .nav-hamburger span{display:block;width:24px;height:1.5px;background:var(--gold)}
+    .mobile-menu{position:fixed;inset:0;z-index:999;background:rgba(13,13,13,0.98);backdrop-filter:blur(30px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;visibility:hidden;transition:all .5s var(--ease)}
+    .mobile-menu.open{opacity:1;visibility:visible}
+    .mobile-menu a{font-family:var(--serif);font-size:1.8rem;color:var(--text-muted);transition:color .3s}
+    .mobile-menu a:hover{color:var(--gold)}
+    .policy-hero{padding:180px 48px 100px;text-align:center;background:radial-gradient(ellipse at top center,#1A1400 0%,#0D0D0D 65%);position:relative;overflow:hidden;border-bottom:1px solid rgba(200,164,94,0.07)}
+    .policy-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(200,164,94,0.06) 0%,transparent 65%);pointer-events:none}
+    .policy-eyebrow{font-size:.66rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:22px;font-weight:500;display:block}
+    .policy-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:400;letter-spacing:-.5px;margin-bottom:20px}
+    .policy-hero h1 em{font-style:italic;color:var(--gold)}
+    .policy-breadcrumb{font-size:.72rem;color:var(--text-muted);letter-spacing:1.5px;margin-top:16px}
+    .policy-breadcrumb a{color:var(--gold);transition:color .3s}
+    .policy-breadcrumb a:hover{color:var(--gold-light)}
+    .policy-body{max-width:840px;margin:0 auto;padding:100px 48px 120px}
+    .policy-intro{font-size:1rem;color:var(--text-muted);font-weight:300;line-height:1.85;margin-bottom:72px;padding-bottom:48px;border-bottom:1px solid rgba(200,164,94,0.07)}
+    .policy-intro strong{color:var(--text);font-weight:500}
+    .policy-section{padding:44px 0;border-bottom:1px solid rgba(200,164,94,0.06);display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start}
+    .policy-section:last-of-type{border-bottom:none}
+    .policy-section-label{display:flex;flex-direction:column;gap:10px;padding-top:4px}
+    .policy-section-num{font-family:var(--serif);font-size:2.4rem;color:rgba(200,164,94,0.14);font-weight:400;line-height:1}
+    .policy-section h2{font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:0}
+    .policy-section-body p{font-size:.92rem;color:var(--text-muted);font-weight:300;line-height:1.85;margin-bottom:14px}
+    .policy-section-body p:last-child{margin-bottom:0}
+    .policy-section-body ul{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+    .policy-section-body li{font-size:.92rem;color:var(--text-muted);font-weight:300;line-height:1.7;padding-left:22px;position:relative}
+    .policy-section-body li::before{content:'\2192';position:absolute;left:0;color:var(--gold);font-size:.74rem;top:4px}
+    .policy-contact{margin-top:80px;padding:52px;border:1px solid rgba(200,164,94,0.12);text-align:center;background:rgba(200,164,94,0.02);position:relative;overflow:hidden}
+    .policy-contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(200,164,94,0.04) 0%,transparent 70%)}
+    .policy-contact .sec-eyebrow{font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:500;display:block;position:relative}
+    .policy-contact h3{font-family:var(--serif);font-size:1.6rem;font-weight:400;margin-bottom:12px;position:relative}
+    .policy-contact p{font-size:.88rem;color:var(--text-muted);font-weight:300;line-height:1.8;margin-bottom:28px;max-width:400px;margin-left:auto;margin-right:auto;position:relative}
+    .btn-primary{padding:16px 42px;background:var(--gold);color:var(--dark);font-size:.78rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;transition:all .4s var(--ease);display:inline-flex;align-items:center;gap:8px;position:relative}
+    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 10px 40px rgba(200,164,94,0.2)}
+    .footer{padding:80px 48px 44px;border-top:1px solid rgba(200,164,94,0.06);background:var(--dark)}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}
+    .footer-brand p{color:var(--text-muted);font-size:.83rem;font-weight:300;line-height:1.85;margin-top:18px;max-width:280px}
+    .footer h4{font-size:.65rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:22px;font-family:var(--sans);font-weight:600}
+    .footer-links{display:flex;flex-direction:column;gap:12px}
+    .footer-links a{font-size:.83rem;color:var(--text-muted);font-weight:300;transition:color .3s}
+    .footer-links a:hover{color:var(--gold)}
+    .footer-bottom{max-width:1200px;margin:64px auto 0;padding-top:24px;border-top:1px solid rgba(200,164,94,0.05);display:flex;justify-content:space-between;align-items:center}
+    .footer-bottom p{font-size:.72rem;color:var(--text-muted);font-weight:300}
+    .footer-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+    .footer-logo-row img{height:30px}
+    .footer-logo-row span{font-family:'Copperplate Gothic Bold','Copperplate',serif;font-size:.95rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:1024px){.nav{padding:18px 28px}.policy-body{padding:80px 32px 100px}.footer-grid{grid-template-columns:1fr 1fr}.footer{padding:60px 32px 36px}}
+    @media(max-width:768px){.nav{padding:16px 20px}.nav-links{display:none}.nav-hamburger{display:flex}.policy-hero{padding:140px 20px 72px}.policy-body{padding:60px 20px 80px}.policy-section{grid-template-columns:1fr;gap:16px}.policy-section-num{font-size:1.8rem}.policy-contact{padding:36px 24px}.footer-grid{grid-template-columns:1fr;gap:32px}.footer{padding:52px 20px 28px}.footer-bottom{flex-direction:column;gap:10px;text-align:center;margin-top:36px}}
+    @media(max-width:480px){.nav{padding:12px 14px}.policy-hero{padding:120px 16px 60px}.policy-body{padding:44px 14px 60px}.footer{padding:44px 14px 24px}}
+</style>
 </head>
 <body>
-
-<header class="header">
-  <a href="index.html" class="logo">
-    <img src="assets/logo22.png" alt="R.K. ENTERPRISE Logo" />
-  </a>
-
-  <div class="nav-wrapper">
-    <div class="menu-toggle" id="menuToggle">&#9776;</div>
-
-    <nav class="nav" id="navMenu">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="index.html#calculator">Price Calculator</a>
-      <a href="index.html#process">Process</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
+<nav class="nav" id="nav">
+  <a href="./index.html" class="nav-logo"><img src="./assets/logo.png" alt="RK Enterprise"><span>RK Enterprise</span></a>
+  <div class="nav-links">
+    <a href="./index.html#solutions">Solutions</a>
+    <a href="./index.html#gallery">Gallery</a>
+    <a href="./index.html#process">Process</a>
+    <a href="./index.html#calculator">Pricing</a>
+    <a href="./index.html#contact" class="nav-cta">Get a Quote</a>
   </div>
-</header>
+  <div class="nav-hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="./index.html#solutions" onclick="toggleMenu()">Solutions</a>
+  <a href="./index.html#gallery" onclick="toggleMenu()">Gallery</a>
+  <a href="./index.html#process" onclick="toggleMenu()">Process</a>
+  <a href="./index.html#calculator" onclick="toggleMenu()">Pricing</a>
+  <a href="./index.html#contact" onclick="toggleMenu()">Contact</a>
+</div>
 
-<!-- HERO -->
-<section class="policy-hero-dark">
-  <h1>Refund Policy</h1>
+<section class="policy-hero">
+  <span class="policy-eyebrow">Legal</span>
+  <h1>Refund <em>Policy</em></h1>
+  <div class="policy-breadcrumb"><a href="./index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;Refund Policy</div>
 </section>
 
-<!-- CONTENT -->
-<section class="policy-content-dark">
-  <div class="policy-container-dark">
+<div class="policy-body">
+  <p class="policy-intro reveal">This Refund Policy outlines the terms under which refunds may be issued by <strong>R.K. Enterprise</strong> for container houses, modular units, and related services.</p>
 
-    <p>
-      This Refund Policy outlines the terms under which refunds may be issued
-      by <strong>R.K. Enterprise</strong> for container houses, modular units,
-      and related services.
-    </p>
-
-    <h2>Advance Payments</h2>
-    <p>
-      Any advance payment made towards booking, design, or manufacturing
-      is strictly non-refundable once the project has been confirmed.
-    </p>
-
-    <h2>Order Cancellation</h2>
-    <p>
-      Cancellation requests must be submitted in writing. Refund eligibility
-      depends on the project stage and material procurement status.
-    </p>
-
-    <h2>Manufacturing Stage</h2>
-    <p>
-      Once manufacturing or fabrication has started, no refund shall be
-      applicable under any circumstances.
-    </p>
-
-    <h2>Customization & Special Orders</h2>
-    <p>
-      Customized container houses and special design orders are made as per
-      client specifications and are not eligible for refunds.
-    </p>
-
-    <h2>Delay or Force Majeure</h2>
-    <p>
-      Delays caused due to weather conditions, government approvals,
-      logistics issues, or force majeure events shall not qualify
-      for refunds.
-    </p>
-
-    <h2>Damaged or Defective Delivery</h2>
-    <p>
-      In the rare event of damage or manufacturing defects, the issue must be
-      reported within 48 hours of delivery. R.K. Enterprise will evaluate and
-      provide repair or replacement as deemed appropriate.
-    </p>
-
-    <h2>Refund Processing</h2>
-    <p>
-      If a refund is approved, it will be processed within 7–10 working days
-      and credited to the original payment method.
-    </p>
-
-    <h2>Contact Information</h2>
-    <p>
-      For any questions regarding this Refund Policy, please contact us
-      through our official communication channels.
-    </p>
-
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">01</span><h2>Advance Payments</h2></div>
+    <div class="policy-section-body"><p>Any advance payment made towards booking, design, or manufacturing is strictly non-refundable once the project has been confirmed.</p></div>
   </div>
-</section>
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">02</span><h2>Order Cancellation</h2></div>
+    <div class="policy-section-body"><p>Cancellation requests must be submitted in writing. Refund eligibility depends on the project stage and material procurement status.</p></div>
+  </div>
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">03</span><h2>Manufacturing Stage</h2></div>
+    <div class="policy-section-body"><p>Once manufacturing or fabrication has started, no refund shall be applicable under any circumstances.</p></div>
+  </div>
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">04</span><h2>Customization &amp; Special Orders</h2></div>
+    <div class="policy-section-body"><p>Customized container houses and special design orders are made as per client specifications and are not eligible for refunds.</p></div>
+  </div>
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">05</span><h2>Delay or Force Majeure</h2></div>
+    <div class="policy-section-body"><p>Delays caused due to weather conditions, government approvals, logistics issues, or force majeure events shall not qualify for refunds.</p></div>
+  </div>
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">06</span><h2>Damaged or Defective Delivery</h2></div>
+    <div class="policy-section-body"><p>In the rare event of damage or manufacturing defects, the issue must be reported within 48 hours of delivery. R.K. Enterprise will evaluate and provide repair or replacement as deemed appropriate.</p></div>
+  </div>
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">07</span><h2>Refund Processing</h2></div>
+    <div class="policy-section-body"><p>If a refund is approved, it will be processed within 7&ndash;10 working days and credited to the original payment method.</p></div>
+  </div>
+  <div class="policy-section reveal">
+    <div class="policy-section-label"><span class="policy-section-num">08</span><h2>Contact Information</h2></div>
+    <div class="policy-section-body"><p>For any questions regarding this Refund Policy, please contact us through our official communication channels.</p></div>
+  </div>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-container">
+  <div class="policy-contact reveal">
+    <span class="sec-eyebrow">Have Questions?</span>
+    <h3>Questions About a Refund?</h3>
+    <p>Contact our support team and we'll help clarify your eligibility and next steps.</p>
+    <a href="./index.html#contact" class="btn-primary">Contact Us &rarr;</a>
+  </div>
+</div>
 
+<footer class="footer">
+  <div class="footer-grid">
     <div class="footer-brand">
-      <img src="assets/logo.png" alt="R.K. Enterprise Logo">
-      <h3>R.K. ENTERPRISE</h3>
-      <p>Container Living & Working, Redefined</p>
+      <div class="footer-logo-row"><img src="./assets/logo.png" alt="RK Enterprise"><span>RK Enterprise</span></div>
+      <p>Containers with character. Premium modular solutions &mdash; crafted fast and delivered with care.</p>
     </div>
-
-    <div class="footer-links">
-      <h4>Quick Links</h4>
-      <a href="aboutus.html">About Us</a>
-      <a href="customers.html">Our Customers</a>
-      <a href="products.html">Products</a>
-      <a href="index.html#calculator">Price Calculator</a>
-      <a href="contactus.html">Contact Us</a>
-    </div>
-
-    <div class="footer-links">
-      <h4>Policies</h4>
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="payment-terms.html">Payment Terms</a>
-      <a href="refund-policy.html">Refund Policy</a>
-      <a href="shipping-policy.html">Shipping Policy</a>
-      <a href="terms-and-conditions.html">Terms & Conditions</a>
-    </div>
-
-    <div class="footer-social">
-      <p class="find-us-text">Find us here</p>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-      </div>
-    </div>
-
+    <div><h4>Solutions</h4><div class="footer-links"><a href="./container-homes.html">Container Homes</a><a href="./office-pods.html">Office Pods</a><a href="./cafe-retail.html">Caf&eacute; Containers</a><a href="./security-cabins.html">Security Cabins</a><a href="./storage-units.html">Storage Units</a></div></div>
+    <div><h4>Company</h4><div class="footer-links"><a href="./index.html#about">About Us</a><a href="./index.html#process">Our Process</a><a href="./index.html#gallery">Gallery</a><a href="./index.html#calculator">Pricing</a><a href="./index.html#contact">Contact</a></div></div>
+    <div><h4>Policies</h4><div class="footer-links"><a href="./privacy-policy.html">Privacy Policy</a><a href="./payment-terms.html">Payment Terms</a><a href="./refund-policy.html">Refund Policy</a><a href="./shipping-policy.html">Shipping Policy</a><a href="./terms-and-conditions.html">Terms &amp; Conditions</a></div></div>
   </div>
-
-  <div class="footer-bottom">
-    © 2024 R.K. Enterprise. All Rights Reserved.
-  </div>
+  <div class="footer-bottom"><p>&copy; 2025 RK Enterprise. All Rights Reserved.</p><p>Kolkata, West Bengal &mdash; Service within 1000 KM</p></div>
 </footer>
-
-<script src="script.js"></script>
+<script>
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+document.addEventListener('DOMContentLoaded',function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('visible');});return;}
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');io.unobserve(en.target);}});},{threshold:0.1});
+  els.forEach(function(el){io.observe(el);});
+});
+</script>
 </body>
 </html>
