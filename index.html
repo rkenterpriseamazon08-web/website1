@@ -870,6 +870,27 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
   }
 }
 
+
+/* ===== INVESTOR PROGRAM BAND ===== */
+.investor-band{position:relative;padding:128px 48px;overflow:hidden;background:linear-gradient(180deg,#131313 0%,#0D0D0D 100%);border-top:1px solid rgba(200,164,94,0.10);border-bottom:1px solid rgba(200,164,94,0.10)}
+.investor-band::before{content:'';position:absolute;top:-30%;right:-8%;width:60vw;height:60vw;max-width:760px;max-height:760px;background:radial-gradient(circle,rgba(200,164,94,0.10),transparent 62%);pointer-events:none}
+.investor-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:center}
+.investor-copy h2{margin-bottom:20px}
+.investor-copy p{color:var(--text-muted);font-weight:300;line-height:1.85;font-size:.95rem;max-width:520px}
+.investor-points{display:flex;flex-wrap:wrap;gap:10px;margin:32px 0 40px}
+.investor-points span{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);border:1px solid rgba(200,164,94,0.14);padding:9px 16px;font-weight:500}
+.investor-points span b{color:var(--gold);font-weight:500}
+.investor-actions{display:flex;gap:16px;flex-wrap:wrap}
+.investor-card{background:var(--charcoal);border:1px solid rgba(200,164,94,0.16);padding:40px 36px}
+.investor-card .ic-k{font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--text-muted);font-weight:500}
+.investor-card .ic-big{font-family:var(--serif);font-size:2.5rem;font-weight:400;color:var(--gold);letter-spacing:-1px;margin:10px 0 4px}
+.investor-card .ic-sub{font-size:.8rem;color:var(--text-muted);font-weight:300;line-height:1.7;margin-bottom:26px}
+.investor-card .ic-row{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-top:1px solid rgba(200,164,94,0.07);font-size:.82rem}
+.investor-card .ic-row em{font-style:normal;color:var(--text-muted);font-weight:300}
+.investor-card .ic-row b{font-weight:500;color:var(--text)}
+.investor-note{margin-top:26px;font-size:.7rem;color:rgba(245,240,232,0.38);font-weight:300;line-height:1.7}
+@media(max-width:900px){.investor-inner{grid-template-columns:1fr;gap:44px}}
+@media(max-width:768px){.investor-band{padding:64px 20px}.investor-card{padding:28px 22px}}
 </style>
 </head>
 <body>
@@ -1068,6 +1089,38 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.15}
 <div class="why-card reveal reveal-delay-1"><div class="why-icon">🔧</div><h3>End-to-End</h3><p>Design, manufacturing, delivery, installation — one point of contact.</p></div>
 <div class="why-card reveal reveal-delay-2"><div class="why-icon">🌿</div><h3>Eco-Conscious</h3><p>Repurposing containers reduces waste while delivering durable structures.</p></div>
 </div></div>
+</section>
+
+<!-- INVESTOR PROGRAM -->
+<section class="investor-band" id="investors">
+<div class="investor-inner">
+<div class="investor-copy reveal">
+<div class="section-eyebrow">Investor Program</div>
+<h2 class="section-title">Own the Container.<br>Earn the <em style="font-style:italic;color:var(--gold)">Rent</em>.</h2>
+<p>Sites need containers — they'd rather rent than own. You buy the asset, RK Enterprise manufactures it, deploys it to verified industrial clients and manages it end to end. You receive estimated monthly rental income.</p>
+<div class="investor-points">
+<span><b>✦</b> Asset ownership</span>
+<span><b>✦</b> Monthly rental income</span>
+<span><b>✦</b> Professionally managed</span>
+<span><b>✦</b> From ₹80,000 + GST</span>
+</div>
+<div class="investor-actions">
+<a href="./investors.html" class="btn-primary">Explore Investor Program →</a>
+<a href="./investors.html#builder" class="btn-outline">Portfolio Calculator</a>
+</div>
+</div>
+<div class="investor-card reveal reveal-delay-2">
+<div class="ic-k">Start From</div>
+<div class="ic-big">₹80,000 <span style="font-size:.5em">+ GST</span></div>
+<div class="ic-sub">One 4×4 security cabin · est. ₹1,850 per month</div>
+<div class="ic-row"><em>Asset options</em><b>8 units</b></div>
+<div class="ic-row"><em>Income cycle</em><b>Monthly</b></div>
+<div class="ic-row"><em>Manufacturing</em><b>Bardhaman &amp; Faridabad</b></div>
+<div class="ic-row"><em>Managed by</em><b>RK Enterprise</b></div>
+<div class="ic-row"><em>Deployed to</em><b>6 industries</b></div>
+<p class="investor-note">Rental income figures are estimates, not assured returns. Full details on the investor page.</p>
+</div>
+</div>
 </section>
 
 <!-- TESTIMONIALS -->
